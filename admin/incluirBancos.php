@@ -9,7 +9,7 @@ if($_POST) {
 }
 
 ?>
-<?php include('topo2.php'); ?>
+<?php include('topo.php'); ?>
 <div class="container">
 	<form class="form-horizontal" action='' method="POST">
 			<div id="legend">

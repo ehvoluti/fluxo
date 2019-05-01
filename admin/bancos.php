@@ -5,7 +5,7 @@ require("../include/config.php");
 $tipos = listar("banco", "*");
 
 ?>
-<?php include("topo2.php"); ?>
+<?php include("topo.php"); ?>
 <div class="container">
 	<legend>
 		<h1>Bancos</h1>

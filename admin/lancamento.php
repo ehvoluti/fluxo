@@ -5,7 +5,7 @@ require("../include/config.php");
 $tipos = listar("lancamento", "*", "","" , "dtemissao DESC", "15");
 
 ?>
-<?php include("topo2.php"); ?>
+<?php include("topo.php"); ?>
 <div class="container">
 	<legend>
 		<h6>Fluxo de Caixa -> Lançamentos</h6>
@@ -38,7 +38,7 @@ $tipos = listar("lancamento", "*", "","" , "dtemissao DESC", "15");
 						<th style="text-align: right" ><?php echo number_format($tipo['valorparcela'],2); ?></th>
 						<th>
 							<!--icones-->
-							<a href="alterarcontrole.php?id=<?php echo $tipo["codlancto"]; ?>"><i class="fas fa-edit"></i></a>
+							<!--  <a href="alterarcontrole.php?id=<?php echo $tipo["codlancto"]; ?>"><i class="fas fa-edit"></i></a>  -->
 							<a href="excluircontrole.php?id=<?php echo $tipo["codlancto"]; ?>"><i class="fas fa-trash-alt"></i></a>
 						</th>
 					</tr>
