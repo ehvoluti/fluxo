@@ -39,7 +39,7 @@ $tipos = listar("lancamento", "*", "","" , "dtemissao DESC", "15");
 						<th>
 							<!--icones-->
 							<!--  <a href="alterarcontrole.php?id=<?php echo $tipo["codlancto"]; ?>"><i class="fas fa-edit"></i></a>  -->
-							<a href="excluircontrole.php?id=<?php echo $tipo["codlancto"]; ?>"><i class="fas fa-trash-alt"></i></a>
+							<a href="excluirLancamento.php?id=<?php echo $tipo["codlancto"]; ?>"><i class="fas fa-trash-alt"></i></a>
 						</th>
 					</tr>
 				<?php endforeach; ?>
