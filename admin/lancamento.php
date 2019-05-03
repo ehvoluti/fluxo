@@ -2,7 +2,7 @@
 
 require("../include/config.php");
 
-$tipos = listar("lancamento", "*", "","" , "dtemissao DESC", "15");
+$tipos = listar("lancamento", "*", " (EXTRACT(YEAR FROM dtemissao))=(EXTRACT(YEAR FROM CURRENT_DATE)) AND EXTRACT(MONTH FROM dtemissao)=EXTRACT(MONTH FROM CURRENT_DATE) " , "" , "dtemissao DESC", "15");
 
 ?>
 <?php include("topo.php"); ?>
@@ -29,7 +29,7 @@ $tipos = listar("lancamento", "*", "","" , "dtemissao DESC", "15");
 				<?php foreach ($tipos as $tipo): ?>
 					<tr>
 						<th><?php echo SUBSTR($tipo['dtemissao'],8,2)."/".SUBSTR($tipo['dtemissao'],5,2); ?></th>
-						<th><?php echo SUBSTR($tipo['favorecido'],0,15)."(".SUBSTR($tipo['referencia'],0,18).")"; ?></th>
+						<th><?php echo SUBSTR($tipo['favorecido'],0,15)." (".SUBSTR($tipo['referencia'],0,18).")"; ?></th>
 							<?php $banco = listar("banco", "*", "codbanco=".$tipo['codbanco']);  foreach ($banco as $xbanco): ?>
 								<th><?php echo $xbanco['nome'];?></th>
 							<?php endforeach; ?>
