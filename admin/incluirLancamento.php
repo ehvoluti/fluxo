@@ -1,8 +1,8 @@
 <?php
 
 require("../include/config.php");
-$banco = listar("banco", "*");
-$fornecedor = listar("fornecedor", "*");
+$banco = listar("banco", "*", null, null, " codbanco");
+$fornecedor = listar("fornecedor", "*", null, null, " nome");
 
 if($_POST) {
     if (inserir("lancamentogru", $_POST)){
@@ -12,19 +12,22 @@ if($_POST) {
 
 ?>
 <?php include('topo.php'); ?>
+
 <!--<script src="js/jquery.min.js" type="text/javascript"></script> Tirei porque esta chamada já esta no topo-->
 <script src="js/jquery.maskMoney.js" type="text/javascript"></script>
 
-	<!-- <script>
+	
+	<script>
 		function getFornec()
 		{
-			var d=document.getElementById("codparceiro");
-			var displaytext = d.options[d.selectedIndex].text;
-			document.getElementById("fornecedor").value=displaytext;
+			var selector = document.getElementById('codparceiro').value;
+			var passavalor 		 = document.getElementById('dtlfornec').options.namedItem(selector).text;;
+			document.getElementById("fornecedor").innerHTML = passavalor; 
+
 		}
 		
 	</script>
-	-->
+	
 
 <div class="container">
 	<form class="form-horizontal" action='' method="POST">
@@ -42,27 +45,29 @@ if($_POST) {
 				</div>
 				
 				<label>Fornecedor</label>
-				<div class="row">
-					<div class="col-4 form-group">
-						<input type="text" id="codparceiro" name="codparceiro" list="fornec" class="form-control col-4 col-xl-4 col-sm-4 form-group" onchage="getFornec();">
-							<datalist id="fornec" >
+				<!-- <div class="row">  class col-5 col-xl-4 col-sm-5 -->
+					<div class="form-group">
+						<input type="text" id="codparceiro" name="codparceiro" list="dtlfornec" class="form-control col-5 col-xl-4 col-sm-5 form-group" onchange="getFornec();">
+							<datalist id="dtlfornec" >
 								<?php  foreach ($fornecedor as $xfornecedor): ?>
-								<option value="<?php echo $xfornecedor['codfornec'];?>"><?php echo $xfornecedor['nome'];?></option>
+								<option id="<?php echo $xfornecedor['codfornec'];?>" value="<?php echo $xfornecedor['codfornec'];?>"><?php echo $xfornecedor['nome'];?></option>
 								<?php endforeach; ?>
 							</datalist>	
 					</div>
-					<!--
-						<div class="col-8">
-							<input type="text" id="fornecedor" name="fornecedor" readonly="true" class="form-control col-8 col-xl-8 col-sm-8 form-group">
+					
+						<div class="form-group">
+							<!-- <label id="fornecedor" readonly=true class="form-group"></label> -->
+							<small id="fornecedor" class="form-text text-muted"></small>
+							<!-- <input type="text" id="fornecedor" name="fornecedor" readonly="true" class="form-control col-8 col-xl-8 col-sm-8 form-group"> -->
 						</div>
-					-->
-				</div>
+					
+				<!--</div>-->
 				
 
 				<label>Banco</label>
 				<div>
-					<div class="form-group">
-						<select class="form-control" name="codbanco" id="banco">
+					<div class="form-group ">
+						<select class="form-control col-5 col-xl-4 col-sm-5 " name="codbanco" id="banco">
 							<?php  foreach ($banco as $xbanco): ?>
 								<option value="<?php echo $xbanco['codbanco'];?>"><?php echo $xbanco['nome'];?></option> 
 							<?php endforeach; ?>
@@ -73,7 +78,7 @@ if($_POST) {
 				<label>Valor</label>
 				<div>
 					<div>
-						<input type="decimal" inputmode="numeric" id="valor" name="valorbruto" style="text-align:right;" class="form-control col-6 col-xl-8 col-sm-8" step="0.01">
+						<input type="decimal" inputmode="numeric" id="valor" name="valorbruto" style="text-align:right;" class="form-control col-5 col-xl-4 col-sm-5" step="0.01">
 					</div>
 				</div>
 				
