@@ -4,9 +4,9 @@ session_start();
 
 $config = array(
 	'host'      => 'localhost',
-	'banco'     => 'hugo2',
+	'banco'     => 'hugo',
 	'usuario'   => 'postgres',
-	'senha'     => 'matrix',
+	'senha'     => '@Matrix12',
 	'port'	    => '5432'
 );
 
