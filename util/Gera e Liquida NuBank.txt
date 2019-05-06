@@ -1,0 +1,18 @@
+--Liquidação
+UPDATE lancamento SET status='R',dtliquid=dtemissao, dtreconc=dtemissao, valorpago=valorliquido  WHERE codbanco=5 AND status IN ('A','L') AND dtvencto <'2018-01-01' AND pagrec='R'
+
+--Insert
+INSERT INTO lancamento (codlancto, codestabelec, pagrec, tipoparceiro, codparceiro, 
+            codcondpagto, codbanco, codespecie, valorparcela, dtlancto, dtemissao, 
+            codcatlancto, codsubcatlancto, observacao, codccusto, codhistorico, 
+            seunumero, nossonumero, codmoeda, favorecido, numnotafis, serie, 
+            codcontacred, codcontadeb, anocompetencia, mescompetencia, referencia, 
+            valorliquido,  usuario, datalog, valorabatimento, dtentrada, dtvencto, prevreal)
+SELECT   NEXTVAL('seq_lancamento_codlancto') AS codlancto,
+	 codestabelec, 'R' AS pagrec, tipoparceiro, codparceiro, 
+            codcondpagto, 5 AS codbanco, codespecie, valorparcela, dtlancto, dtemissao, 
+            codcatlancto, codsubcatlancto, observacao, codccusto, codhistorico, 
+            seunumero, nossonumero, codmoeda, favorecido, numnotafis, serie, 
+            codcontacred, codcontadeb, anocompetencia, mescompetencia, referencia, 
+            valorliquido,  'Entrada Nubank' AS usuario, datalog, valorabatimento,  dtentrada, dtvencto, 'R' AS prevreal
+FROM lancamento WHERE codparceiro=55 AND dtliquid>='01-01-2018' AND dtliquid<='2018-12-31' AND pagrec='P' AND codbanco=1

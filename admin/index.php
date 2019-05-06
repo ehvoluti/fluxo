@@ -12,7 +12,8 @@ if(!logado()){
 	<div class="row">
 		<div class="span12">
 			<h1>Fluxo Pessoal</h1>
-			<p>Fluxo de caixa para controle das despesas proprias </p>
+			<p>Fluxo de caixa para controle das despesas proprias</p>
+			<a  href="incluirLancamento.php"><i class="fas fa-edit"></i>  Incluir Lançamento</a>
 		</div>
 	</div>
 </div>	

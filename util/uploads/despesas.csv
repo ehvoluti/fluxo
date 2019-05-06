@@ -1,0 +1,100 @@
+data,Codfor,Fornecedor,Valor,Banco,Banco,referencia
+2019-04-01,32,Dive - Companhia M,10.00,4,Pessoal,Enfeite Mazinha
+2019-04-01,49,Casa - Alimentos,50.00,4,Pessoal,Yakult Paula (falta pagar)
+2019-04-01,48,Banco - Outros Creditos,"1,736.00",7,Caixa Poup,Seguro Desemprego 1/5
+2019-04-02,49,Casa - Alimentos,50.00,4,Pessoal,Yakult
+2019-04-02,40,Banco - Saque,500.00,7,Caixa Poup,
+2019-04-02,48,Banco - Outros Creditos,500.00,4,Pessoal,#saque poup caixa
+2019-04-02,49,Casa - Alimentos,7.50,7,Caixa Poup,Chocolate
+2019-04-02,6,Carr - Combustivel,80.00,4,Pessoal,
+2019-04-02,55,NuBank,"1,264.91",1,Itau,NuBank ref 03-2019
+2019-04-03,54,Casa - Heloisa,34.49,5,NU Bank,Remedio para tosse
+2019-04-02,27,Santos Jogos e afins,33.00,5,NU Bank,ingresso Santos x scpc
+2019-04-02,27,Santos Jogos e afins,66.00,5,NU Bank,ingresso Santos x scpc pai e carlos
+2019-04-02,35,Banco - Tarifa,10.50,1,Itau,
+2019-04-03,58,Trabalho Autonomo,20.00,4,Pessoal,Teste boleto itau
+2019-04-04,47,Carr - Estacio/Outros,50.00,5,NU Bank,Conect Car Pai
+2019-04-04,9,Estu - Livros e Jornais,3.52,5,NU Bank,Google Cloud
+2019-04-06,28,Lote - Sena,20.00,4,Pessoal,
+2019-04-06,26,Dive - Bebidas,50.00,4,Pessoal,bebidas casamento Anna Maria
+2019-04-06,49,Casa - Alimentos,25.00,4,Pessoal,feira
+2019-04-05,49,Casa - Alimentos,10.00,4,Pessoal,padaria
+2019-04-08,1,Alim- Doce,4.00,4,Pessoal,
+2019-04-09,49,Casa - Alimentos,10.00,4,Pessoal,padaria
+2019-04-05,58,Trabalho Autonomo,20.00,1,Itau,#Teste boleto com Esdras
+2019-04-05,58,Trabalho Autonomo,4.95,1,Itau,Desc Boleto - Teste boleto com Esdras
+2019-04-10,48,Banco - Outros Creditos,"2,000.00",1,Itau,#Retirada Poup Itau
+2019-04-10,40,Banco - Saque,"2,000.00",2,Itau 500,Retirada Poup Itau
+2019-04-10,40,Banco - Saque,300.00,1,Itau,
+2019-04-10,12,Fone - Tim/Oi,93.98,1,Itau,"Net Casa e Plano Claro (44,90)"
+2019-04-15,51,Casa - Mensal,73.56,1,Itau,Luz
+2019-04-10,51,Casa - Mensal,408.60,1,Itau,Net Share Pai
+2019-04-10,53,Invest - Previdencia,300.00,1,Itau,Prev Bradesco
+2019-04-05,54,Casa - Heloisa,38.20,5,NU Bank,Fraldas e Lencos
+2019-04-05,49,Casa - Alimentos,22.40,5,NU Bank,Esfilhas
+2019-04-08,47,Carr - Estacio/Outros,5.00,5,NU Bank,Zona Azul
+2019-04-09,37,Pess - Moveis e Eletronicos (casa),190.25,5,NU Bank,HD SSD Amazon
+2019-04-10,13,Pess - Farmacia Remedio,25.68,5,NU Bank,Benegrip / Xantion / Etc
+2019-04-10,29,Pess - Roupas,119.85,5,NU Bank,3x camisas Mr Kichet
+2019-04-10,49,Casa - Alimentos,34.17,5,NU Bank,Mercado
+2019-04-10,6,Carr - Combustivel,50.00,4,Pessoal,
+2019-04-11,47,Carr - Estacio/Outros,22.00,4,Pessoal,Lava carro
+2019-04-18,49,Casa - Alimentos,4.00,4,Pessoal,padaria
+2019-04-11,27,Santos Jogos e afins,22.00,5,NU Bank,Santos x atletico GO
+2019-04-11,27,Santos Jogos e afins,22.00,5,NU Bank,Santos x atletico GO Pai
+2019-04-13,49,Casa - Alimentos,6.00,4,Pessoal,padaria
+2019-04-13,49,Casa - Alimentos,50.00,4,Pessoal,feira / carne / queijo
+2019-04-15,51,Casa - Mensal,430.36,1,Itau,Cond Fit Bosque 04-2019
+2019-04-13,32,Dive - Companhia M,103.51,5,NU Bank,Pizzaria Alemao
+2019-04-16,58,Trabalho Autonomo,50.00,4,Pessoal,Cartoes de Visita
+2019-04-16,58,Trabalho Autonomo,225.00,1,Itau,#Instala Rudival 1/4
+2019-04-16,58,Trabalho Autonomo,4.95,1,Itau,taxa boleto
+2019-04-16,6,Carr - Combustivel,80.00,4,Pessoal,
+2019-04-18,27,Santos Jogos e afins,44.00,5,NU Bank,Santos x Vasco
+2019-04-18,27,Santos Jogos e afins,44.00,5,NU Bank,Santos x Vasco Pai
+2019-04-18,27,Santos Jogos e afins,50.00,5,NU Bank,Conect Car para descer Jogo Santos
+2019-04-18,50,Casa - Equipamentos,15.00,4,Pessoal,Toalhas balcao
+2019-04-18,50,Casa - Equipamentos,20.00,4,Pessoal,conserto secador
+2019-04-18,28,Lote - Sena,12.00,4,Pessoal,
+2019-04-16,58,Trabalho Autonomo,150.00,4,Pessoal,Comissao contabilidade Rudival
+2019-04-19,6,Carr - Combustivel,70.00,4,Pessoal,
+2019-04-20,49,Casa - Alimentos,28.00,4,Pessoal,Feira
+2019-04-20,49,Casa - Alimentos,27.90,5,NU Bank,Pizza em Casa
+2019-04-22,1,Alim- Doce,35.40,5,NU Bank,Sorvetes Oggi
+2019-04-22,47,Carr - Estacio/Outros,11.00,5,NU Bank,Shopping Itaquera troca do ferro
+2019-04-23,49,Casa - Alimentos,8.00,4,Pessoal,Agua
+2019-04-23,49,Casa - Alimentos,10.00,4,Pessoal,Mercado
+2019-04-23,49,Casa - Alimentos,10.00,4,Pessoal,Acougue
+2019-04-24,20,Alim - Lanche,12.00,4,Pessoal,almoco
+2019-04-30,51,Casa - Mensal,280.00,4,Pessoal,#Net Pai
+2019-04-30,21,Santos Mensal Caixinha,150.00,4,Pessoal,
+2019-04-30,19,Dizimo,20.00,4,Pessoal,
+2019-04-30,47,Carr - Estacio/Outros,50.00,4,Pessoal,#ConectCar Pai
+2019-04-30,27,Santos Jogos e afins,100.00,4,Pessoal,#3x ingresso x cachorrada (99.00)
+2019-04-30,27,Santos Jogos e afins,44.00,4,Pessoal,#2x ingresso x atletico GO
+2019-04-30,27,Santos Jogos e afins,88.00,4,Pessoal,#2x ingresso x vasco
+2019-04-30,27,Santos Jogos e afins,100.00,4,Pessoal,#Desp Gasolina e Pedagio jogo Vila (Vasco)
+2019-04-25,1,Alim- Doce,2.00,4,Pessoal,
+2019-04-25,28,Lote - Sena,3.00,4,Pessoal,
+2019-04-25,49,Casa - Alimentos,30.56,5,NU Bank,Mercado
+2019-04-25,49,Casa - Alimentos,6.00,4,Pessoal,padaria
+2019-04-26,47,Carr - Estacio/Outros,10.00,4,Pessoal,estacionamento penha
+2019-04-26,47,Carr - Estacio/Outros,50.00,5,NU Bank,Conect Car Pai
+2019-04-27,6,Carr - Combustivel,50.00,4,Pessoal,
+2019-04-27,26,Dive - Bebidas,10.00,4,Pessoal,Gelo niver Cayke
+2019-04-28,49,Casa - Alimentos,20.00,4,Pessoal,Padaria
+2019-04-29,32,Dive - Companhia M,10.00,4,Pessoal,Bateria Relogio 
+2019-04-29,54,Casa - Heloisa,25.98,5,NU Bank,Trocador e assento
+2019-04-26,58,Trabalho Autonomo,700.00,1,Itau,#Katia Perfumaria instalacao Saurus
+2019-04-29,47,Carr - Estacio/Outros,50.00,5,NU Bank,ConectCar Pai
+2019-04-30,17,Viagem Mensal,150.00,4,Pessoal,
+2019-04-29,48,Banco - Outros Creditos,"1,736.00",7,Caixa Poup,#Seguro desemprego 2/5
+,,#N/A,,,#N/A,
+,,#N/A,,,#N/A,
+,,#N/A,,,#N/A,
+,,#N/A,,,#N/A,
+,,#N/A,,,#N/A,
+,,#N/A,,,#N/A,
+,,#N/A,,,#N/A,
+,,#N/A,,,#N/A,
+,,#N/A,,,#N/A,

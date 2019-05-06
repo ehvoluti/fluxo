@@ -1,0 +1,20 @@
+SELECT status, dtemissao, * FROM lancamento WHERE codbanco=1 AND status='A'
+UPDATE lancamento SET status='L',dtliquid=dtvencto, valorpago=valorliquido WHERE codbanco=4 AND status='A'
+
+
+--Usando reconciliação
+SELECT * FROM lancamento LIMIT 1
+
+UPDATE lancamento SET dtreconc=dtliquid, status='R' WHERE status='L' AND dtliquid IS NOT NULL 
+
+ALTER TABLE lancamento DROP COLUMN  idofx;
+ALTER TABLE lancamento ADD COLUMN  idofx CHARACTER VARYING (15);
+
+
+SELECT status, dtemissao, * FROM lancamento WHERE codbanco=4 AND status='A' ORDER BY dtemissao
+--30 Dias
+UPDATE lancamento SET status='R',dtliquid=dtemissao, dtreconc=dtemissao, valorpago=valorliquido  WHERE codbanco=4 AND status IN ('A','L') AND dtvencto BETWEEN '2019-08-01' 
+AND '2019-08-31'
+--31 dias
+UPDATE lancamento SET status='R',dtliquid=dtemissao, dtreconc=dtemissao, valorpago=valorliquido  WHERE codbanco=4 AND status IN ('A','L') AND dtvencto BETWEEN '2019-09-01' 
+AND '2019-09-31'
