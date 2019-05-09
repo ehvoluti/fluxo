@@ -8,7 +8,9 @@
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/all.css" rel="stylesheet"> <!--load all styles -->
 		
+		
 			<!-- Ainda não esta em uso
+			<link href="css/style_fluxo.css" rel="stylesheet">
 			<link href="css/style.css" rel="stylesheet">
 			-->
 	</head>
@@ -65,6 +67,7 @@
 				<footer>
 					<script src="js/jquery.min.js"></script>
 					<script src="js/bootstrap.bundle.min.js"></script>
+					<script src="js/lancamento.js"></script>
 				</footer>	
 		</div>
 	 <?php endif; ?>	

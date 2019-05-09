@@ -4,6 +4,7 @@ require("../include/config.php");
 $banco = listar("banco", "*", null, null, " codbanco");
 $fornecedor = listar("fornecedor", "*", null, null, " nome");
 
+//echo $_POST;
 if($_POST) {
     if (inserir("lancamentogru", $_POST)){
         header('Location: lancamento.php');

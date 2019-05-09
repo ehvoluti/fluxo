@@ -1,0 +1,13 @@
+.show_info span {
+	opacity: 0;
+	transition: 0.6s opacity;
+	color: #A4A4A4;
+}
+.show_info span:before{
+	z-index: -1;
+	left: 50%;
+	transform: translateX(-50%) rotate (45 deg);
+}
+.show_info:hover > span {
+	opacity:1;
+}
