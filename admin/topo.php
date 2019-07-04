@@ -7,6 +7,7 @@
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/all.css" rel="stylesheet"> <!--load all styles -->
+		<link href="css/style.css" rel="stylesheet">
 		
 		
 			<!-- Ainda não esta em uso

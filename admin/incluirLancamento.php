@@ -18,7 +18,7 @@ if($_POST) {
 <script src="js/jquery.maskMoney.js" type="text/javascript"></script>
 
 	
-	<script>
+<!--	<script>
 		function getFornec()
 		{
 			var selector = document.getElementById('codparceiro').value;
@@ -28,7 +28,7 @@ if($_POST) {
 		}
 		
 	</script>
-	
+-->	
 
 <div class="container">
 	<form class="form-horizontal" action='' method="POST">
@@ -87,8 +87,8 @@ if($_POST) {
 				<label>Referencia</label>
 				<div>
 					<div>
-						<input type="text" id="referencia" name="referencia" class="form-control col-6 col-xl-8 col-sm-8">
-
+						<input type="text" id="referencia" name="referencia" class="form-control col-6 col-xl-8 col-sm-8" onkeyup="limitachar();" >
+						<span id="limitachar" class="limitachar"></span>
 					</div>
 				</div>
 				
