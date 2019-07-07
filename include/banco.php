@@ -219,3 +219,21 @@ function combocat($onde) {
 	
 	return $resultados;
 }
+
+
+function saldo($banco) {
+	
+	/**
+	 * Montamos nossa query SQL para pegar apenas um dado
+	 */
+	$query = "SELECT (SELECT nome FROM banco WHERE codbanco=$banco) AS banco, SUM(CASE WHEN pagrec='P' THEN (valorpago*(-1)) ELSE valorpago END) AS saldo FROM lancamento WHERE codbanco = $banco";
+	
+	$consulta = pg_query($query);
+	//echo $query;	
+	/**
+	 * Guardamos os resultados dentro do array resultados, que será retornado para a aplicação
+	 */
+	$resultados = pg_fetch_assoc($consulta);
+	
+	return $resultados;
+}

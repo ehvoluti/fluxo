@@ -48,7 +48,7 @@ if($_POST) {
 				<label>Fornecedor</label>
 				<!-- <div class="row">  class col-5 col-xl-4 col-sm-5 -->
 					<div class="form-group">
-						<input type="text" id="codparceiro" name="codparceiro" list="dtlfornec" class="form-control col-5 col-xl-4 col-sm-5 form-group" onchange="getFornec();">
+							<input type="text" id="codparceiro" name="codparceiro" list="dtlfornec" class="form-control col-5 col-xl-4 col-sm-5 form-group" onchange="getFornec();">
 							<datalist id="dtlfornec" >
 								<?php  foreach ($fornecedor as $xfornecedor): ?>
 								<option id="<?php echo $xfornecedor['codfornec'];?>" value="<?php echo $xfornecedor['codfornec'];?>"><?php echo $xfornecedor['nome'];?></option>

@@ -27,16 +27,45 @@ function limitachar() {
 		msglimite.innerHTML = `${texto.length}`;
 	}		
   
-	/*
-	var texto = $('#referencia').val();
+}
 
-  if (texto.length > 5 ) {
-	$('.limitachar').text((texto.length) + ': (Ultrapassou limite de 35 caracteres)');
-	
-	//document.span.style.color = 'rgb(138, 118, 7)';
 
-  } else {
-	   $('.limitachar').text(texto.length);
-  }
+
+/*Ver Saldo em carteira */
+/*
+function versaldo() {
+	var saldo4 = document.getElementById('saldo4')
+	var textospan = saldo4.innerText
+	var saldo = document.getElementById('saldotemp')
+	//var saldo = "<?php $versaldo = saldo(4); echo $versaldo[saldo]; ?>"
+	//	saldo4.innerHTML += teste
+//	teste.innerHTML +=saldo4.innerText
+	if (textospan.length==0) {
+		saldo4.innerHTML = ` Saldo em pessoal = ` + saldo.innerText
+	} else {
+		saldo4.innerHTML = ``			
+	}
+
+}
 */
+
+function versaldo(valor) {
+	var saldo4 = document.getElementById('saldo4')
+	var textospan = saldo4.innerText
+	var page = 'ajax/saldobanco.php'
+	if (textospan.length==0) {
+		$.ajax
+			({
+				type: 'GET',
+				dataType: 'html',
+				url: page,
+				beforeSend: function() {
+					$("#saldo4").html("Carrengado...");
+				},
+				data: {valor: valor},
+				success: function(msg) {$("#saldo4").html(msg)}
+			});
+	} else {
+		saldo4.innerHTML = ``			
+	}		
 }
