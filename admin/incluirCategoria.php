@@ -10,8 +10,7 @@ if($_POST) {
 
 ?>
 <?php include('topo.php'); ?>
-<div class="row">
-    <div class="span12">
+<div class="container">
         <form class="form-horizontal" action='' method="POST">
             <fieldset>
                 <div id="legend">
@@ -21,36 +20,35 @@ if($_POST) {
                <div class="control-group">
                     <label class="control-label" for="codcatlancto">Codigo</label>
                     <div class="controls">
-                        <input type="text" id="codcatlancto" name="codcatlancto"  class="input-xlarge">
+                        <input type="text" id="codcatlancto" name="codcatlancto"  class="form-control col-4 col-xl-2 col-sm-8" >
                     </div>
                 </div>
 
                 <div class="control-group">
                     <label class="control-label" for="descricao">Descricao</label>
                     <div class="controls">
-                        <input type="text" id="descricao" name="descricao" class="input-xlarge">
+                        <input type="text" id="descricao" name="descricao" class="form-control col-6 col-xl-8 col-sm-8">
 
                     </div>
                 </div>
-				
+				<!-- Aguardando implementação para Previsão
                 <div class="control-group">
                     <label class="control-label" for="previsao">Previsao</label>
                     <div class="controls">
-                        <input type="text" id="previsao" name="previsao" class="input-xlarge" mask="decimal2" style="text-align: right;">
+                        <input type="number" id="previsao" name="previsao" class="form-control col-4 col-xl-2 col-sm-8" mask="decimal2" style="text-align: right;">
 
                     </div>
                 </div>
-
-
+                -->
                 <div class="control-group">
                     <!-- Button -->
                     <div class="controls">
-                        <input type="submit" value="Incluir" >
+                        <br><input type="submit" value="Incluir" class="btn btn-primary">
                     </div>
                 </div>
 
             </fieldset>
         </form>
-    </div>
+
 </div>
 <?php include("rodape.php"); ?>

@@ -1,0 +1,97 @@
+body {
+  background-color: #f5f5f5;
+  font-family: Verdana;
+  padding: 0px 20px;
+}
+body h1 {
+  background-color: transparent;
+  border-bottom: none;
+  box-shadow: none;
+  cursor: default;
+  font-size: 22px;
+  margin-bottom: 5px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.resultado {
+  display: inline-block;
+  padding-right: 15px;
+  margin-bottom: 20px;
+}
+.resultado .table {
+  border: none;
+  border-collapse: separate;
+  font-size: 12px;
+}
+.resultado .table tr > *:not([onclick]) {
+  border: none;
+}
+.resultado .table td, .resultado .table th {
+  min-width: 100px;
+  padding: 5px 10px;
+  vertical-align: middle;
+}
+.resultado .table td[onclick], .resultado .table th[onclick] {
+  cursor: pointer;
+  transition: all linear 100ms;
+}
+.resultado .table td[onclick] {
+  background-color: #FFF;
+}
+.resultado .table td[onclick]:hover {
+  background-color: #c1d1e0;
+}
+.resultado .table th[onclick] {
+  background-color: #476c8e;
+  border-color: #EEE;
+  color: #FFF;
+}
+.resultado .table th[onclick]:hover {
+  background-color: #36526c;
+}
+.resultado .table tr:nth-child(1) > *:nth-child(2) {
+  border-top-left-radius: 3px;
+}
+.resultado .table tr:nth-child(1) > *:nth-last-child(2) {
+  border-top-right-radius: 3px;
+}
+.resultado .table tr:nth-child(2) > *:nth-child(1) {
+  border-top-left-radius: 3px;
+}
+.resultado .table tr:nth-child(2) > *:nth-last-child(1) {
+  border-top-right-radius: 3px;
+}
+.resultado .table tr:nth-last-child(2) > *:nth-child(1) {
+  border-bottom-left-radius: 3px;
+}
+.resultado .table tr:nth-last-child(1) > *:nth-child(2) {
+  border-bottom-left-radius: 3px;
+}
+.resultado .table tr:nth-last-child(1) > *:nth-last-child(1) {
+  border-bottom-right-radius: 3px;
+}
+
+#detalhe_grid {
+  height: 445px;
+}
+#detalhe_grid .grid-row-success {
+  color: #297729;
+}
+#detalhe_grid .grid-row-warning {
+  color: #F00;
+}
+
+/*# sourceMappingURL=painelfinanceiro_resultado.css.map */

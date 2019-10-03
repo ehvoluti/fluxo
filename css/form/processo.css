@@ -1,0 +1,11 @@
+.grid_processo_parametro {
+  background-image: url(../../img/grid_edit.gif);
+  background-position: top right;
+  background-repeat: no-repeat;
+  cursor: text;
+  height: 100%;
+  width: 100%; }
+  .grid_processo_parametro img {
+    float: right; }
+
+/*# sourceMappingURL=processo.css.map */

@@ -1,0 +1,61 @@
+#divmain {
+  display: flex; }
+  #divmain > div {
+    border-radius: 3px;
+    display: flex-item-1;
+    flex: 1;
+    margin: 5px; }
+    #divmain > div h1 {
+      border: 1px solid #888;
+      position: relative; }
+      #divmain > div h1 span {
+        font-size: 13px; }
+      #divmain > div h1 button {
+        border-radius: 0px 3px 0px 0px;
+        height: calc(100% + 2px);
+        min-height: 0px !important;
+        min-width: 0px !important;
+        position: absolute;
+        right: -1px;
+        top: -1px;
+        width: 32px; }
+    #divmain > div ul {
+      background-color: #fff;
+      border: 1px solid #aaa;
+      border-top: none;
+      height: 400px;
+      list-style: none;
+      margin: 0px;
+      overflow-y: auto;
+      padding: 0px; }
+      #divmain > div ul li {
+        background-color: #fff;
+        border-bottom: 1px solid #ccc;
+        cursor: pointer;
+        height: 28px;
+        position: relative;
+        transition: all linear 100ms; }
+        #divmain > div ul li:hover {
+          background-color: #fafafa; }
+        #divmain > div ul li.active {
+          background-color: #eaeaea; }
+        #divmain > div ul li span {
+          font-size: 11px;
+          left: 4px;
+          position: relative;
+          top: 3px; }
+        #divmain > div ul li input {
+          border: 0px;
+          height: 100%;
+          width: calc(100% - 32px); }
+        #divmain > div ul li button {
+          border-radius: 0px;
+          height: calc(100% + 2px);
+          min-height: 0px !important;
+          min-width: 0px !important;
+          position: absolute;
+          right: -2px;
+          top: -1px;
+          width: 33px; }
+
+/*# sourceMappingURL=mercadologico.css.map */

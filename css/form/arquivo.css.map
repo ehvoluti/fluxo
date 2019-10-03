@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,SAAU;EACT,MAAM,EAAE,KAAK;EAEb,aAAI;IACH,MAAM,EAAE,OAAO",
+"sources": ["../../scss/form/arquivo.scss"],
+"names": [],
+"file": "arquivo.css"
+}

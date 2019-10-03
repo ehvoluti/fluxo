@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+body > table {
+  height: 100%;
+  width: 100%; }
+
+.conteudo {
+  margin-top: 90px; }
+  .conteudo .pagina {
+    display: none; }
+    .conteudo .pagina > table {
+      table-layout: fixed;
+      width: 100%; }
+      .conteudo .pagina > table > tbody > tr {
+        height: 400px; }
+        .conteudo .pagina > table > tbody > tr > td:nth-child(1) {
+          background-color: #EEE;
+          text-align: center;
+          width: 60px; }
+          .conteudo .pagina > table > tbody > tr > td:nth-child(1) div {
+            left: -75px;
+            position: relative;
+            transform: rotate(-90deg);
+            width: 200px; }
+        .conteudo .pagina > table > tbody > tr > td:nth-child(2) {
+          width: 60%; }
+        .conteudo .pagina > table > tbody > tr:not(:first-child) > td {
+          border-top: 2px dashed #444; }
+
+.filtro {
+  background-color: #FAFAFA;
+  box-shadow: 0px 0px 15px 0px #000;
+  font-size: 13px;
+  height: 35px;
+  overflow: visible;
+  padding: 0px 15px;
+  position: fixed;
+  top: 55px;
+  vertical-align: middle;
+  width: 100%;
+  z-index: 1; }
+  .filtro > div {
+    display: inline-block; }
+    .filtro > div.filtro-estabelecimento #selecionarestabelecimento {
+      background: #DDD;
+      color: #888;
+      cursor: pointer;
+      height: 100%;
+      line-height: 34px;
+      padding: 0px 20px;
+      text-align: center;
+      transition: all 200ms linear;
+      width: 290px; }
+      .filtro > div.filtro-estabelecimento #selecionarestabelecimento:hover {
+        background-color: #CCC;
+        color: #666; }
+    .filtro > div.filtro-estabelecimento #arr_estabelecimento {
+      border: 1px solid #DDD;
+      border-top: none;
+      background-color: #FFF;
+      display: none;
+      position: absolute;
+      width: 290px; }
+      .filtro > div.filtro-estabelecimento #arr_estabelecimento > div {
+        padding: 2px 10px; }
+        .filtro > div.filtro-estabelecimento #arr_estabelecimento > div:nth-child(even) {
+          background-color: #FAFAFA; }
+    .filtro > div.filtro-periodo {
+      margin-left: 40px;
+      position: relative;
+      top: -3px; }
+      .filtro > div.filtro-periodo input[mask="data"] {
+        background-color: #FDFDFD;
+        border: 1px solid #DDD;
+        font-size: 12px;
+        height: 28px;
+        text-align: center;
+        width: 100px; }
+    .filtro > div.filtro-mais {
+      background: #DDD;
+      color: #888;
+      cursor: pointer;
+      line-height: 35px;
+      margin-left: 20px;
+      overflow: visible;
+      position: relative;
+      text-align: center;
+      transition: all 200ms linear;
+      top: -13px;
+      width: 125px; }
+      .filtro > div.filtro-mais:hover {
+        background-color: #CCC;
+        color: #666; }
+      .filtro > div.filtro-mais > span {
+        display: block; }
+      .filtro > div.filtro-mais > #filtro-mais-conteudo {
+        border: 1px solid #CCC;
+        box-shadow: 0px 5px 5px -5px #000;
+        background-color: #FFF;
+        display: none;
+        float: left;
+        left: 0px;
+        padding: 10px 20px;
+        position: absolute;
+        width: 360px;
+        top: calc(100% + 5px); }
+    .filtro > div.filtro-aplicar {
+      background: #20BA46;
+      color: #FFF;
+      cursor: pointer;
+      font-weight: bold;
+      height: 100%;
+      line-height: 34px;
+      margin-left: -5px;
+      text-align: center;
+      transition: all 200ms linear;
+      width: 125px; }
+      .filtro > div.filtro-aplicar:hover {
+        background-color: #168231; }
+
+.menu {
+  background-color: #EEE;
+  border-bottom: 1px solid #DDD;
+  height: 55px;
+  padding: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 2; }
+  .menu > ul {
+    display: table;
+    height: 100%;
+    list-style: none;
+    margin: 0px;
+    padding: 0px; }
+    .menu > ul > li {
+      color: #AAA;
+      cursor: pointer;
+      display: table-cell;
+      font-weight: bold;
+      height: 100%;
+      margin: 0px;
+      padding: 0px 40px;
+      vertical-align: middle;
+      transition: all 200ms linear; }
+      .menu > ul > li:hover, .menu > ul > li[selected] {
+        background-color: #408DDB;
+        color: #FFF;
+        transition: all 200ms linear; }
+      .menu > ul > li.sair:hover, .menu > ul > li.sair[selected] {
+        background-color: #D63838;
+        color: #FFF;
+        transition: all 200ms linear; }
+
+.chart {
+  height: 100%;
+  width: 100%; }
+  .chart table {
+    border: 1px solid #DDD;
+    border-collapse: separate;
+    border-radius: 7px;
+    border-spacing: 2px;
+    color: #333;
+    font-size: 13px;
+    margin: 0px auto; }
+    .chart table tr td {
+      padding: 2px 4px; }
+    .chart table tr:first-child td {
+      background-color: #408DDB;
+      color: #FFF;
+      padding: 4px 2px; }
+      .chart table tr:first-child td:first-child {
+        border-radius: 5px 0px 0px 0px; }
+      .chart table tr:first-child td:last-child {
+        border-radius: 0px 5px 0px 0px; }
+    .chart table tr:last-child td:first-child {
+      border-radius: 0px 0px 0px 5px; }
+    .chart table tr:last-child td:last-child {
+      border-radius: 0px 0px 5px 0px; }
+    .chart table tr:nth-child(even) td {
+      background-color: #F6F6F6; }
+
+#foco {
+  border: none;
+  height: 0px;
+  opacity: 0;
+  position: absolute;
+  width: 0px; }
+
+/*# sourceMappingURL=bi.css.map */

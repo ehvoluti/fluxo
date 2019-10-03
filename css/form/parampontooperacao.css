@@ -1,0 +1,11 @@
+fieldset {
+  margin-top: 15px;
+  margin-bottom: -15px;
+}
+
+#fs_camposdisp > div > div {
+  display: inline-block;
+  width: 48%;
+}
+
+/*# sourceMappingURL=parampontooperacao.css.map */

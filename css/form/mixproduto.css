@@ -1,0 +1,35 @@
+#div_mixproduto table tbody tr td:nth-child(3) span {
+  cursor: pointer; }
+#div_mixproduto table tbody tr td {
+  position: relative; }
+
+#arr_estab {
+  width: 300px;
+  height: auto;
+  padding: 2px;
+  background-color: #fff;
+  border: rgba(0, 0, 0, 0.63) 1px solid;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.62);
+  top: 100%;
+  z-index: 10;
+  display: none; }
+
+.grid_head {
+  height: 5px;
+  width: 10px;
+  display: inline;
+  font-size: 11px;
+  margin-right: 8px; }
+  .grid_head input {
+    margin: 0; }
+
+.grid_body {
+  height: 5px;
+  width: 10px;
+  display: inline;
+  font-size: 11px;
+  margin-right: 8px; }
+  .grid_body input {
+    margin: 0; }
+
+/*# sourceMappingURL=mixproduto.css.map */

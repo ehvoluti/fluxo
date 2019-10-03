@@ -1,0 +1,357 @@
+* {
+  font-family: Verdana, Arial, Helvetica, sans-serif; }
+
+a, button, input, label, select, textarea {
+  font-size: 8pt; }
+
+a {
+  color: #006699;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline; }
+  a:hover {
+    color: #006699;
+    text-decoration: underline; }
+
+body {
+  background-color: #FFFFFF;
+  margin: 0px;
+  padding: 0px;
+  display: none; }
+
+input[mask="rg"] {
+  text-transform: uppercase; }
+
+div {
+  overflow: hidden; }
+
+div#divScreen {
+  overflow: visible;
+  width: 900px; }
+
+div.etiqueta {
+  background-color: #FFFFFF;
+  border: 1px solid #999999;
+  height: 200px;
+  width: 100%; }
+
+div.etiqueta > div {
+  background-color: #EEEEEE;
+  border: 1px solid #CCCCCC;
+  height: 40px;
+  position: absolute;
+  width: 200px; }
+
+div.listbox {
+  background-color: #FFF;
+  border: 1px solid #CCC;
+  height: 320px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%; }
+
+div.listbox.catlancto {
+  height: 120px; }
+
+div.listbox.subcatlancto {
+  height: 120px; }
+
+div.listbox tr:hover {
+  background-color: #EEF; }
+
+div.listbox td {
+  font-size: 12px; }
+
+div.tabpage {
+  background: -webkit-gradient(linear, left top, left bottom, from(RGBA(248, 248, 248, 0.75)), to(RGBA(248, 248, 248, 0.75)), color-stop(0.5, RGBA(255, 255, 255, 1)));
+  border: 1px #666 solid;
+  border-top: none;
+  overflow: visible;
+  padding: 10px;
+  padding-top: 15px;
+  width: 100%; }
+  div.tabpage .tabpage {
+    overflow: hidden; }
+
+div.tip {
+  background-color: #FFFFCC;
+  border: 1px solid #DFCD86;
+  color: #333333;
+  display: none;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 8pt;
+  margin-top: 8px;
+  padding: 8px;
+  text-align: center; }
+
+fieldset {
+  border: 1px solid #CCCCCC;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  width: 100%; }
+
+font {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 8pt; }
+
+form {
+  padding: 0px;
+  margin: 0px; }
+
+h1 {
+  background-color: #E0E7E9;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 13pt;
+  font-weight: normal;
+  margin: 0px;
+  padding: 7px;
+  text-align: center; }
+
+img {
+  border: none; }
+
+input[type="text"], input[type="password"], select, textarea {
+  background-color: #FFF;
+  border: 1px solid #BBB;
+  border-radius: 1px;
+  box-shadow: inset 0px 1px 1px 0px RGBA(0, 0, 0, 0.1);
+  padding-left: 4px;
+  padding-right: 4px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+  input[type="text"]:not(textarea):not([size]), input[type="password"]:not(textarea):not([size]), select:not(textarea):not([size]), textarea:not(textarea):not([size]) {
+    height: 20px; }
+  input[type="text"]:focus, input[type="password"]:focus, select:focus, textarea:focus {
+    background-color: #FFFFF0;
+    border-color: #66afe9;
+    box-shadow: inset 0px 1px 1px 0px RGBA(0, 0, 0, 0.1), 0px 0px 5px 0px RGBA(100, 150, 230, 0.45);
+    outline: none; }
+  input[type="text"]:disabled, input[type="text"][readonly], input[type="password"]:disabled, input[type="password"][readonly], select:disabled, select[readonly], textarea:disabled, textarea[readonly] {
+    background-color: #EEE;
+    border-color: #CCC;
+    box-shadow: none;
+    color: #888; }
+
+input::-webkit-calendar-picker-indicator {
+  display: none; }
+
+legend {
+  color: #666666;
+  cursor: default;
+  font-size: 9pt; }
+
+select:not([size]) {
+  background-image: url(../../img/select_arrow.png);
+  background-position: right 6px center;
+  background-repeat: no-repeat;
+  background-size: 8px;
+  padding-right: 20px; }
+  select:not([size]):disabled {
+    background-image: url(../../img/select_arrow_disabled.png); }
+
+table {
+  border-collapse: collapse;
+  width: 100%; }
+
+table.caixamensagem {
+  border-collapse: separate;
+  border-spacing: 3px;
+  display: table; }
+
+table.caixamensagem div[titulo] {
+  background-color: #CCC;
+  font-size: 12px;
+  padding: 3px 10px; }
+
+table.caixamensagem div[texto] {
+  font-size: 11px;
+  padding: 5px 10px 10px 10px; }
+
+table.caixamensagem td {
+  background-color: #EEE;
+  border: 1px solid #AAA; }
+
+table.caixamensagem td:hover {
+  box-shadow: 0px 0px 2px 1px #CC3; }
+
+table.mainform {
+  margin-top: 5px;
+  width: 900px; }
+
+table.searchfield-table td {
+  padding: 0px; }
+  table.searchfield-table td:nth-child(2) {
+    padding: 0px 2px; }
+
+td {
+  padding: 1px; }
+
+td.fwtitle {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 9pt;
+  font-weight: bold;
+  padding-bottom: 15px;
+  text-align: center; }
+
+td.field, td.field2, td.field3 {
+  text-align: left;
+  vertical-align: middle;
+  width: 32%; }
+
+td.field2 {
+  width: 16%; }
+
+td.field3 {
+  width: 8%; }
+
+td.label, td.label2, td.label3 {
+  text-align: right;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 18%; }
+
+td.label2 {
+  width: 9%; }
+
+td.label3 {
+  width: 4.5%; }
+
+tr.footer {
+  background-color: #CCDDE6;
+  color: #000000;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 8pt; }
+
+tr.title {
+  background-color: #D2DEE3;
+  color: #000;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 9pt;
+  height: 18px; }
+
+tr.row {
+  height: 15px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 8pt;
+  overflow: visible; }
+
+tr.row td {
+  height: 10px;
+  white-space: nowrap; }
+
+ul.radiogroup {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+ul.radiogroup li {
+  vertical-align: middle; }
+
+ul.radiogroup li:hover {
+  background-color: RGBA(200, 200, 220, 0.3); }
+
+ul.radiogroup li input {
+  margin: 8px 5px; }
+
+ul.radiogroup li label {
+  position: relative;
+  top: -2px; }
+
+ul.tabs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 5px;
+  width: 100%; }
+
+ul.tabs li, div.title {
+  background-position: bottom;
+  display: inline;
+  float: left;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 8pt;
+  height: 38px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  text-align: center;
+  vertical-align: middle; }
+
+ul.tabs li.tabend {
+  background-image: url(../../img/tabend.gif); }
+
+ul.tabs li.taboff {
+  background-image: url(../../img/taboff.gif);
+  color: #666;
+  cursor: pointer;
+  transition: all linear 100ms;
+  width: 100px; }
+
+ul.tabs li.tabhot {
+  background-image: url(../../img/tabhot.gif);
+  color: #666;
+  cursor: pointer;
+  transition: all linear 100ms;
+  width: 100px; }
+
+ul.tabs li.tabon {
+  background-image: url(../../img/tabon.gif);
+  color: #333;
+  cursor: pointer;
+  transition: all linear 100ms;
+  width: 100px; }
+
+ul.tabs li.title, div.title {
+  background-image: url(../../img/tabend.gif);
+  font-size: 14pt;
+  text-align: left; }
+  ul.tabs li.title.title, div.title.title {
+    width: 898px; }
+    ul.tabs li.title.title img, div.title.title img {
+      position: relative;
+      top: -2px; }
+    ul.tabs li.title.title div, div.title.title div {
+      left: 40px;
+      position: absolute;
+      top: 3px; }
+
+.field_full {
+  width: 100%; }
+
+.field_g {
+  width: 225px; }
+
+.field_m {
+  width: 150px; }
+
+.field_p {
+  width: 75px; }
+
+.field_pp {
+  width: 35px; }
+
+.span-observacao {
+  font-size: 10px;
+  color: #666666; }
+
+#ui-datepicker-div {
+  width: 189px; }
+
+.ui-datepicker-title {
+  font-size: 10px; }
+
+.ui-datepicker-calendar thead {
+  font-size: 8px; }
+
+red {
+  color: red; }
+
+.box_p {
+  color: #444;
+  font-size: 11px;
+  margin-top: 5px;
+  text-align: Justify; }
+
+/*# sourceMappingURL=style.css.map */

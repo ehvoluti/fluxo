@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,QAAS;EACR,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;EAGV,2CAAqB;IACpB,UAAU,EAAE,IAAI;EAIlB,sBAAgB;IACf,WAAW,EAAE,IAAI;IACjB,SAAS,EAAE,IAAI;IAEf,4BAAQ;MACP,OAAO,EAAE,QAAQ",
+"sources": ["../../scss/form/mixfiscal.scss"],
+"names": [],
+"file": "mixfiscal.css"
+}

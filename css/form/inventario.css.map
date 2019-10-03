@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,sCAAsC;EACrC,UAAU,EAAE,GAAG;;AAEhB,sDAAsD;EACrD,YAAY,EAAE,GAAG",
+"sources": ["../../scss/form/inventario.scss"],
+"names": [],
+"file": "inventario.css"
+}

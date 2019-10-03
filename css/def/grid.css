@@ -1,0 +1,72 @@
+div.gridborder {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  overflow: auto; }
+
+table.grid {
+  border-collapse: separate;
+  table-layout: fixed; }
+  table.grid thead tr th {
+    cursor: default;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: left; }
+    table.grid thead tr th.header {
+      background-image: url(../../img/grid_bg.gif);
+      background-repeat: no-repeat;
+      background-position: center right;
+      cursor: url(../../img/grid_bg.gif), default; }
+    table.grid thead tr th.headerSortUp {
+      cursor: url(../../img/grid_asc.gif), default;
+      background-image: url(../../img/grid_asc.gif); }
+    table.grid thead tr th.headerSortDown {
+      cursor: url(../../img/grid_desc.gif), default;
+      background-image: url(../../img/grid_desc.gif); }
+  table.grid tbody td {
+    font-size: 11px; }
+    table.grid tbody td > div {
+      text-overflow: ellipsis; }
+    table.grid tbody td input {
+      height: 15px; }
+      table.grid tbody td input[type="text"] {
+        background: none;
+        background-image: url(../../img/grid_edit.gif);
+        background-position: top right;
+        background-repeat: no-repeat;
+        border: none;
+        box-shadow: none;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 8pt !important;
+        height: 100%;
+        padding-right: 12px;
+        width: 100%; }
+        table.grid tbody td input[type="text"]:disabled {
+          background-image: none; }
+      table.grid tbody td input[type="checkbox"], table.grid tbody td input[type="radio"] {
+        margin: 0px; }
+    table.grid tbody td select {
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+      font-family: Verdana, Arial, Helvetica, sans-serif;
+      height: 100%;
+      position: relative;
+      text-align: right;
+      top: -1px;
+      width: 100%; }
+    table.grid tbody td .fa {
+      color: #555;
+      cursor: pointer;
+      font-size: 14px; }
+    table.grid tbody td .searchfield-table {
+      td: last-child;
+        td-display: none; }
+  table.grid tfoot {
+    position: absolute;
+    overflow: hidden; }
+    table.grid tfoot tr td {
+      cursor: default;
+      font-size: 11px;
+      font-weight: normal; }
+
+/*# sourceMappingURL=grid.css.map */

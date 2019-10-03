@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,yBAAyB;EACxB,MAAM,EAAC,OAAO",
+"sources": ["../../scss/form/notadiversa.scss"],
+"names": [],
+"file": "notadiversa.css"
+}

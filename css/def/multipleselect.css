@@ -1,0 +1,34 @@
+select + .ms-parent {
+  overflow: visible; }
+  select + .ms-parent > button.ms-choice {
+    background-color: #fff;
+    background-image: url(../../img/select_arrow.png);
+    background-position: right 6px center;
+    background-repeat: no-repeat;
+    background-size: 8px;
+    border: 1px solid #bbb;
+    border-radius: 1px;
+    box-shadow: inset 0px 1px 1px 0px RGBA(0, 0, 0, 0.1);
+    cursor: default;
+    height: 20px !important;
+    min-height: 20px !important;
+    padding-left: 4px;
+    padding-right: 20px; }
+    select + .ms-parent > button.ms-choice:disabled {
+      background-image: url(../../img/select_arrow_disabled.png); }
+    select + .ms-parent > button.ms-choice > span {
+      line-height: 20px; }
+    select + .ms-parent > button.ms-choice > div {
+      display: none; }
+  select + .ms-parent > div.ms-drop {
+    border-color: #bbb;
+    border-top-style: dashed;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    width: calc(100% - 2px); }
+    select + .ms-parent > div.ms-drop ul li span {
+      left: 2px;
+      position: relative;
+      top: 1px; }
+
+/*# sourceMappingURL=multipleselect.css.map */

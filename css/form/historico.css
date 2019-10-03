@@ -1,0 +1,14 @@
+#table_historico {
+  font-size: 12px;
+  width: 100%;
+  table-layout: fixed; }
+
+#bh_alteracao {
+  word-wrap: break-word;
+  background-color: RGBA(255, 255, 255, 0.75);
+  border: 1px solid #CCC;
+  font-size: 11px;
+  margin-top: 10px;
+  padding: 7px 5px; }
+
+/*# sourceMappingURL=historico.css.map */

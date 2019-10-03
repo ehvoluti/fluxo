@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  overflow: none; }
+
+.text-sql {
+  width: 100%;
+  height: 100%; }
+
+#editor {
+  height: 40%;
+  width: 100%;
+  padding: 10px;
+  background-color: #444;
+  color: white;
+  font-size: 14px;
+  font-family: monospace; }
+
+.statement {
+  color: orange; }
+
+#div-header {
+  background-color: #eee;
+  border-bottom: 1px solid #aaa;
+  display: table;
+  height: 48px;
+  width: 100%; }
+
+#div-header > div {
+  display: table-cell; }
+
+#div-header > div:nth-child(1) {
+  padding: 10px;
+  text-align: left;
+  width: 25%; }
+
+#div-header > div:nth-child(2) {
+  text-align: center;
+  width: 50%; }
+
+#div-header > div:nth-child(2) #sql-descricaofiscal {
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+  text-shadow: 0px 1px 1px #fff;
+  top: 4px; }
+
+#div-header > div:nth-child(2) #sql-descricaofiscal:hover {
+  color: #00f; }
+
+#div-header > div:nth-child(3) {
+  padding: 10px;
+  text-align: right;
+  width: 25%; }
+
+#btn-continuar {
+  background-color: #fff;
+  box-shadow: 0px 2px 2px -1px black;
+  border: 1px solid #fafafa;
+  cursor: pointer;
+  display: none;
+  font-size: 10px;
+  padding: 5px 10px;
+  position: absolute;
+  right: 10px;
+  text-align: center;
+  text-shadow: 0px 1px 1px #fff;
+  top: 40px;
+  transition: all linear 100ms; }
+
+#btn-continuar:hover {
+  background-color: #bdedc0;
+  border-color: #090; }
+
+#table-sql {
+  border-collapse: separate;
+  border-spacing: 10px;
+  height: calc(100% - 50px);
+  width: 100%; }
+
+#table-sql .gridborder {
+  height: 60%;
+  transition: all linear 200ms; }
+
+#table-sql .gridborder:hover {
+  border-color: #000; }
+
+#table-sql .menu-paginacao {
+  font-size: 12px; }
+
+#table-sql .menu-paginacao span {
+  user-select: none;
+  cursor: pointer; }
+
+#modal-opcoes {
+  display: none; }
+
+h2.grid-title {
+  background-color: #d2dee3;
+  border: 1px solid #000;
+  border-bottom: 0px;
+  box-shadow: inset 0px 0px 0px 2px #fff;
+  font-size: 14px;
+  font-weight: normal;
+  display: none;
+  height: 40px;
+  padding: 0px;
+  padding-top: 11px;
+  position: absolute;
+  margin: 0px;
+  margin-top: -37px;
+  text-align: center;
+  z-index: 1; }
+
+.grid-loading {
+  position: relative; }
+
+.grid-loading::after {
+  content: "";
+  background-color: rgba(255, 255, 255, 0.75);
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 1; }
+
+.grid-selected {
+  background-color: #c8c8d1 !important; }
+
+.grid-selected input:not([type="checkbox"]):focus, .grid-selected select:not([type="checkbox"]):focus {
+  background-color: #fff !important;
+  box-shadow: inset 0px 0px 0px 2px #00f !important; }
+
+/*# sourceMappingURL=sql.css.map */

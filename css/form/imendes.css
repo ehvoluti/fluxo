@@ -1,0 +1,19 @@
+fieldset {
+  box-sizing: border-box;
+  height: 144px;
+  width: 100%; }
+  fieldset#fs_saneamento select {
+    margin-bottom: 5px; }
+  fieldset#fs_saneamento input[type="button"] {
+    height: 40px;
+    display: block;
+    width: 406px; }
+    fieldset#fs_saneamento input[type="button"]:first-of-type {
+      margin-bottom: 5px; }
+  fieldset#fs_contadores {
+    padding-top: 10px;
+    font-size: 12px; }
+    fieldset#fs_contadores > div {
+      padding: 5px 20px; }
+
+/*# sourceMappingURL=imendes.css.map */

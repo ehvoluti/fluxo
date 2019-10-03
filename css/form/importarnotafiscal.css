@@ -1,0 +1,11 @@
+#ul_posgravacao li {
+  font-size: 11px;
+  padding: 2px 0px; }
+
+#ul_posgravacao li a {
+  text-decoration: none; }
+
+#ul_posgravacao li:hover a {
+  text-decoration: underline; }
+
+/*# sourceMappingURL=importarnotafiscal.css.map */

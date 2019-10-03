@@ -1,0 +1,79 @@
+#screenmenu {
+  background-image: url(../../img/screenmenu-background.jpg);
+  background-repeat: repeat-y;
+  border-right: 1px solid #DBE7FE;
+  height: 100%;
+  left: 0px;
+  position: fixed;
+  transition: all linear 200ms;
+  top: 0px;
+  width: 65px; }
+  #screenmenu > div {
+    cursor: pointer;
+    display: block;
+    height: 45px;
+    padding: 12px 0px 7px 0px;
+    position: relative;
+    text-align: center;
+    transition: all linear 100ms;
+    width: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none; }
+    #screenmenu > div > span {
+      color: RGBA(0, 0, 0, 0.6);
+      display: block;
+      font-size: 9px;
+      font-weight: bold;
+      transition: all linear 100ms; }
+    #screenmenu > div:hover {
+      background-color: RGBA(140, 195, 210, 0.25); }
+      #screenmenu > div:hover > span {
+        color: RGBA(0, 0, 0, 1); }
+    #screenmenu > div paper-ripple {
+      color: #888; }
+
+#screenmenu-mensagem-balao {
+  /*background: url(../../img/novamensagem.png);*/
+  display: none;
+  height: 35px;
+  left: 55;
+  position: fixed;
+  top: 208px;
+  width: 142px; }
+  #screenmenu-mensagem-balao > div {
+    cursor: pointer;
+    height: 27px;
+    left: 8px;
+    position: relative;
+    top: 2px;
+    width: 117px; }
+
+#modal-caixamensagem-grade {
+  height: 390px;
+  margin-top: 5px;
+  overflow-y: scroll; }
+
+#modal-ajuda-corpo {
+  padding-bottom: 20px; }
+  #modal-ajuda-corpo h4 {
+    margin: 20px 0px 5px 0px;
+    padding: 0px; }
+    #modal-ajuda-corpo h4:first-of-type {
+      margin-top: 0px; }
+  #modal-ajuda-corpo table * {
+    font-size: 13px; }
+  #modal-ajuda-corpo table td a {
+    font-weight: normal; }
+  #modal-ajuda-corpo table td:first-child {
+    font-weight: bold;
+    width: 110px; }
+  #modal-ajuda-corpo input[type="button"] {
+    margin-top: 5px; }
+
+@media (max-width: 1040px) {
+  #screenmenu {
+    left: -66px; } }
+
+/*# sourceMappingURL=screenmenu.css.map */

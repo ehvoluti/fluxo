@@ -1,0 +1,27 @@
+#localimpressora {
+  width: calc(100% - 38px); }
+
+#btn_localimpressora_abrir {
+  height: 20px;
+  min-height: 0px !important;
+  min-width: 0px !important;
+  position: relative;
+  top: -1px;
+  width: 32px; }
+
+#localimpressora_login {
+  width: calc(100% - 106px); }
+
+#btn_localimpressora_incluir {
+  height: 20px;
+  min-height: 0px !important;
+  min-width: 0px !important;
+  position: relative;
+  top: -1px;
+  width: 100px; }
+
+#grid_localimpressora {
+  margin-top: 5px;
+  height: 200px; }
+
+/*# sourceMappingURL=parampontovenda.css.map */

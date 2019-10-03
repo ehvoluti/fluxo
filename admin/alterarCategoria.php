@@ -12,39 +12,39 @@ if($_GET["id"]){
 }
 
 ?>
-<?php include('topo.php'); ?>
-<div class="row">
-    <div class="span12">
-        <form class="form-horizontal" action='' method="POST">
-            <fieldset>
-                <div id="legend">
-                    <legend class=""><h1>Alterar Categoria</h1></legend>
+<?php include("CategoriaForm.php"); ?>
 
-                </div>
-                <div class="control-group">
-                    <label class="control-label" for="codcatlancto">Nome</label>
-                    <div class="controls">
-                        <input type="text" id="codcatlancto" name="codcatlancto" value="<?php echo $tipo["codcatlancto"]; ?>" class="input-xlarge">
-                    </div>
-                </div>
+<!--<p id="teste"> Teste de texto aqui</p> -->
 
-                <div class="control-group">
-                    <label class="control-label" for="descricao">E-mail</label>
-                    <div class="controls">
-                        <input type="text" id="descricao" name="descricao" value="<?php echo $tipo["descricao"]; ?>" class="input-xlarge">
-                    </div>
-                </div>
-
-
-                <div class="control-group">
-                    <!-- Button -->
-                    <div class="controls">
-                        <input type="submit" value="Alterar" >
-                    </div>
-                </div>
-
-            </fieldset>
-        </form>
-    </div>
-</div>
 <?php include("rodape.php"); ?>
+
+<script>
+    var codcatlancto = document.getElementById('codcatlancto')
+    var descricao = document.getElementById('descricao')
+    var teste = document.getElementById('teste')
+    var botao = document.getElementById('')
+    var page = 'ajax/ver.php'
+    var valget = location.href
+    //valget = `codcatlancto=`+valget.substr(-1) 
+    valget = `codcatlancto=`+valget.substr(valget.search('=')+1) 
+    //str.substr(str.search("W3")+1);
+    //descricao.value="teste aqui"
+		$.ajax
+			({
+				type: 'GET',
+				dataType: 'html',
+				url: page,
+				beforeSend: function() {
+					$("#codcatlancto").html("Carrengado...");
+				},
+				data: {tabela: "catlancto", campos: "*", valor: valget},
+                success: function(msg) {
+                    resp = msg.split(":")
+                    //$("#teste").html(resp[1])
+                    $("#codcatlancto").val(resp[0])
+                    $("#descricao").val(resp[1])
+                }
+                
+			});
+
+</script>

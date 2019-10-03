@@ -1,0 +1,39 @@
+#divmain * {
+  box-sizing: border-box; }
+#divmain > div:nth-child(1), #divmain > div:nth-child(2) {
+  display: inline-block;
+  text-align: center;
+  width: 49%; }
+  #divmain > div:nth-child(1) h5, #divmain > div:nth-child(2) h5 {
+    color: #666;
+    font-size: 16px;
+    margin: 10px 0px 0px 0px; }
+  #divmain > div:nth-child(1) p, #divmain > div:nth-child(2) p {
+    font-size: 12px;
+    padding: 0px 55px;
+    margin-bottom: 5px;
+    text-align: justify; }
+  #divmain > div:nth-child(1) button, #divmain > div:nth-child(1) input[type="button"], #divmain > div:nth-child(2) button, #divmain > div:nth-child(2) input[type="button"] {
+    height: 40px;
+    margin: 5px;
+    width: 180px; }
+#divmain > div:nth-child(3) {
+  border: 1px solid RGBA(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background-color: RGBA(255, 255, 255, 1);
+  color: #444;
+  font-size: 11px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  padding: 10px 20px;
+  width: 400px; }
+  #divmain > div:nth-child(3) > div {
+    margin: 1px 0px; }
+    #divmain > div:nth-child(3) > div span {
+      font-weight: bold; }
+
+#listalancamento {
+  height: 300px;
+  margin-bottom: 5px; }
+
+/*# sourceMappingURL=cielo.css.map */

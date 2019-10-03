@@ -1,0 +1,40 @@
+button, input[type="button"] {
+  background-color: #DDD;
+  background-image: url(../../img/button_normal.png);
+  background-position: center;
+  border: 1px solid #999;
+  border-radius: 3px;
+  color: #444;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-shadow: 0px 1px 1px RGBA(255, 255, 255, 0.75);
+  transition: all linear 100ms; }
+  button:active, button:focus, button:hover, input[type="button"]:active, input[type="button"]:focus, input[type="button"]:hover {
+    background-image: url(../../img/button_hot.png);
+    border-color: #069;
+    color: #000;
+    outline: none; }
+    button:active.button-green, button:focus.button-green, button:hover.button-green, input[type="button"]:active.button-green, input[type="button"]:focus.button-green, input[type="button"]:hover.button-green {
+      background-image: url(../../img/button_hot_green.png);
+      border-color: #090; }
+    button:active.button-red, button:focus.button-red, button:hover.button-red, input[type="button"]:active.button-red, input[type="button"]:focus.button-red, input[type="button"]:hover.button-red {
+      background-image: url(../../img/button_hot_red.png);
+      border-color: #900; }
+  button:disabled, input[type="button"]:disabled {
+    background-image: none;
+    border: 1px solid #bbb;
+    color: #999;
+    cursor: default; }
+
+button.button-upload {
+  position: relative; }
+  button.button-upload input {
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    opacity: 0;
+    width: 100%; }
+
+/*# sourceMappingURL=button.css.map */

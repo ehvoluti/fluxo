@@ -1,0 +1,12 @@
+fieldset {
+  height: 98px;
+  width: 100%; }
+  fieldset#fs_saneamento input[type="button"] {
+    margin-top: 10px; }
+  fieldset#fs_contadores {
+    padding-top: 10px;
+    font-size: 12px; }
+    fieldset#fs_contadores > div {
+      padding: 5px 20px; }
+
+/*# sourceMappingURL=mixfiscal.css.map */

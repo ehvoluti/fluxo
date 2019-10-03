@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,yBAAwB;EACvB,UAAU,EAAE,IAAI;EAChB,aAAa,EAAE,IAAI",
+"sources": ["../../scss/form/impetiqcliente.scss"],
+"names": [],
+"file": "impetiqcliente.css"
+}

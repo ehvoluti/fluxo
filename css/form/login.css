@@ -1,0 +1,177 @@
+html {
+  height: 100%; }
+
+body {
+  background-color: #FFF;
+  background-image: url(../../img/websac_bg.png);
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  height: 100%; }
+
+.login {
+  background-color: #6CA3C4;
+  border: solid 1px RGBA(0, 0, 0, 0.1);
+  border-radius: 3px;
+  box-shadow: 0px 5px 10px 0px RGBA(0, 0, 0, 0.45);
+  display: block;
+  padding: 2px;
+  padding-bottom: 4px;
+  width: 900px; }
+  .login, .login * {
+    box-sizing: border-box; }
+  .login h2 {
+    font-size: 16px;
+    font-weight: bold; }
+  .login > table {
+    border-spacing: 10px;
+    border-collapse: separate; }
+    .login > table > tbody {
+      /* ************
+      L O G O T I P O
+      ************ */
+      /* ******************************
+      A T U A L I Z A R   S I S T E M A
+      ****************************** */
+      /* ****************************
+      E F E T U E   S E U   L O G I N
+      **************************** */
+      /* ********************
+      S E N H A   M E N S A L
+      ******************** */
+      /* ********
+      R O D A P E
+      ******** */ }
+      .login > table > tbody > tr > td {
+        background: linear-gradient(to bottom, #f9fcf7 0%, #f5f9f0 100%);
+        border-radius: 3px;
+        box-shadow: 0px 5px 5px 1px RGBA(0, 0, 0, 0.25);
+        padding: 10px 20px;
+        vertical-align: top; }
+      .login > table > tbody > tr:nth-child(1) > td {
+        padding: 15px;
+        text-align: center; }
+        .login > table > tbody > tr:nth-child(1) > td .logo {
+          width: 450px; }
+      .login > table > tbody > tr:nth-child(2) > td:nth-child(1) {
+        width: 60%; }
+        .login > table > tbody > tr:nth-child(2) > td:nth-child(1) h2 span {
+          font-weight: normal; }
+        .login > table > tbody > tr:nth-child(2) > td:nth-child(1) ul {
+          list-style: none;
+          margin: 0px;
+          padding: 0px 0px 15px 10px; }
+          .login > table > tbody > tr:nth-child(2) > td:nth-child(1) ul li:before {
+            content: "";
+            margin-right: 10px; }
+          .login > table > tbody > tr:nth-child(2) > td:nth-child(1) ul li a {
+            font-size: 13px;
+            text-decoration: none; }
+          .login > table > tbody > tr:nth-child(2) > td:nth-child(1) ul li:nth-child(1) a {
+            font-size: 15px; }
+          .login > table > tbody > tr:nth-child(2) > td:nth-child(1) ul li:nth-child(4) a {
+            color: #F00; }
+      .login > table > tbody > tr:nth-child(2) > td:nth-child(2) {
+        padding-bottom: 30px;
+        position: relative; }
+        .login > table > tbody > tr:nth-child(2) > td:nth-child(2) > div:nth-of-type(1) {
+          margin-left: auto;
+          margin-right: auto;
+          width: 75%; }
+          .login > table > tbody > tr:nth-child(2) > td:nth-child(2) > div:nth-of-type(1) label {
+            font-size: 16px; }
+          .login > table > tbody > tr:nth-child(2) > td:nth-child(2) > div:nth-of-type(1) #usuario, .login > table > tbody > tr:nth-child(2) > td:nth-child(2) > div:nth-of-type(1) #senha {
+            font-size: 18px;
+            height: 34px;
+            width: 100%; }
+            .login > table > tbody > tr:nth-child(2) > td:nth-child(2) > div:nth-of-type(1) #usuario:nth-of-type(1), .login > table > tbody > tr:nth-child(2) > td:nth-child(2) > div:nth-of-type(1) #senha:nth-of-type(1) {
+              margin-bottom: 10px; }
+          .login > table > tbody > tr:nth-child(2) > td:nth-child(2) > div:nth-of-type(1) > div {
+            padding-top: 10px; }
+            .login > table > tbody > tr:nth-child(2) > td:nth-child(2) > div:nth-of-type(1) > div span {
+              color: #5791b8;
+              cursor: pointer;
+              font-size: 9px;
+              left: 1px;
+              position: relative;
+              top: -7px; }
+            .login > table > tbody > tr:nth-child(2) > td:nth-child(2) > div:nth-of-type(1) > div input[type="button"] {
+              float: right;
+              height: 35px;
+              width: 120px; }
+        .login > table > tbody > tr:nth-child(2) > td:nth-child(2) .login-block {
+          background: linear-gradient(to bottom, #f9fcf7 0%, #f5f9f0 100%);
+          border-radius: 3px;
+          bottom: 0px;
+          left: 0px;
+          opacity: 0.95;
+          padding: 70px 30px 0px 30px;
+          position: absolute;
+          right: 0px;
+          text-align: center;
+          top: 0px; }
+          .login > table > tbody > tr:nth-child(2) > td:nth-child(2) .login-block span {
+            display: block;
+            padding-bottom: 20px; }
+            .login > table > tbody > tr:nth-child(2) > td:nth-child(2) .login-block span:nth-child(1) {
+              font-weight: bold;
+              font-size: 16px; }
+            .login > table > tbody > tr:nth-child(2) > td:nth-child(2) .login-block span:nth-child(2) {
+              font-size: 14px; }
+      .login > table > tbody > tr:nth-child(3) > td:nth-child(1) > div {
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 5px;
+        width: 90%; }
+        .login > table > tbody > tr:nth-child(3) > td:nth-child(1) > div #senhamensal-invalida-opcao {
+          padding: 10px 0px 20px 0px;
+          text-align: center; }
+          .login > table > tbody > tr:nth-child(3) > td:nth-child(1) > div #senhamensal-invalida-opcao span {
+            font-size: 12px;
+            margin: 0px 10px; }
+        .login > table > tbody > tr:nth-child(3) > td:nth-child(1) > div #senhamensal-invalida-manual {
+          display: none; }
+          .login > table > tbody > tr:nth-child(3) > td:nth-child(1) > div #senhamensal-invalida-manual p {
+            font-size: 12px;
+            margin: 0px; }
+          .login > table > tbody > tr:nth-child(3) > td:nth-child(1) > div #senhamensal-invalida-manual input[type="text"] {
+            font-size: 12px;
+            height: 28px;
+            margin: 5px 0px; }
+          .login > table > tbody > tr:nth-child(3) > td:nth-child(1) > div #senhamensal-invalida-manual input[type="button"] {
+            float: right; }
+      .login > table > tbody > tr:nth-child(3) > td:nth-child(1) #senhamensal-status-texto.senhamensal-status-0 {
+        font-weight: normal; }
+      .login > table > tbody > tr:nth-child(3) > td:nth-child(1) #senhamensal-status-texto.senhamensal-status-1 {
+        color: #cd0a0a;
+        font-weight: bold; }
+      .login > table > tbody > tr:nth-child(3) > td:nth-child(1) #senhamensal-status-texto.senhamensal-status-2 {
+        color: #cd810a;
+        font-weight: bold; }
+      .login > table > tbody > tr:nth-child(4) > td:nth-child(1) {
+        padding: 15px; }
+        .login > table > tbody > tr:nth-child(4) > td:nth-child(1) span {
+          font-size: 11px;
+          display: block;
+          text-align: center; }
+          .login > table > tbody > tr:nth-child(4) > td:nth-child(1) span:nth-of-type(3) {
+            font-size: 10px;
+            font-weight: bold; }
+
+.novo {
+  border-radius: 5px;
+  color: white;
+  font-size: 8px;
+  padding: 2px 5px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  background-color: #f00;
+  margin-left: 8px;
+  animation: myfirst 500ms linear 2s infinite alternate; }
+
+@keyframes myfirst {
+  0% {
+    background-color: red; }
+  100% {
+    background-color: orange; } }
+
+/*# sourceMappingURL=login.css.map */

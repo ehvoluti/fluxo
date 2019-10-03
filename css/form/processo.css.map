@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,wBAAyB;EACxB,gBAAgB,EAAE,4BAA4B;EAC9C,mBAAmB,EAAE,SAAS;EAC9B,iBAAiB,EAAE,SAAS;EAC5B,MAAM,EAAE,IAAI;EACZ,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;EAEX,4BAAI;IACH,KAAK,EAAE,KAAK",
+"sources": ["../../scss/form/processo.scss"],
+"names": [],
+"file": "processo.css"
+}

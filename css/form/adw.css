@@ -1,0 +1,37 @@
+#fs_importacao p {
+  color: #444;
+  font-size: 11px;
+  margin-top: 5px;
+  text-align: Justify; }
+
+#divAdw {
+  display: none;
+  margin-top: 10px;
+  width: 100%; }
+
+.img-window {
+  float: right;
+  cursor: pointer;
+  margin-left: 5px; }
+
+.img-delete {
+  float: right;
+  height: 9px;
+  margin-left: 5px; }
+
+.img-search {
+  cursor: pointer; }
+
+.img-edit {
+  margin-left: 4px;
+  cursor: pointer;
+  display: inline; }
+
+.table-saldo {
+  margin-top: 4px; }
+
+.td-right {
+  text-align: right;
+  width: 148px; }
+
+/*# sourceMappingURL=adw.css.map */

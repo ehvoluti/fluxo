@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,gBAAgB;EACf,SAAS,EAAE,IAAI;EAAE,KAAK,EAAE,IAAI;EAAE,YAAY,EAAE,KAAK;;AAElD,aAAa;EAAC,SAAS,EAAE,UAAU;EAAE,gBAAgB,EAAC,yBAAsB;EAAE,MAAM,EAAC,cAAc;EAAE,SAAS,EAAC,IAAI;EAAE,UAAU,EAAC,IAAI;EAAE,OAAO,EAAC,OAAO",
+"sources": ["../../scss/form/historico.scss"],
+"names": [],
+"file": "historico.css"
+}

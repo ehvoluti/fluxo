@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 	<head>
-		<title>Fluxo Pessoal™</title>
+		<title>Fluxo Pessoal</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="utf-8">
 		<!-- Bootstrap -->
@@ -10,7 +10,7 @@
 		<link href="css/style.css" rel="stylesheet">
 		
 		
-			<!-- Ainda não esta em uso
+			<!-- Ainda n�o esta em uso
 			<link href="css/style_fluxo.css" rel="stylesheet">
 			<link href="css/style.css" rel="stylesheet">
 			-->

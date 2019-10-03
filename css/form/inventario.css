@@ -1,0 +1,7 @@
+#divCadButtonsAll input[type="button"] {
+  margin-top: 5px; }
+
+#divCadButtonsAll input[type="button"]:not(.cadbutton) {
+  margin-right: 5px; }
+
+/*# sourceMappingURL=inventario.css.map */

@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  overflow: none; }
+
+#div-header {
+  background-color: #eee;
+  border-bottom: 1px solid #aaa;
+  display: table;
+  height: 48px;
+  width: 100%; }
+  #div-header > div {
+    display: table-cell; }
+    #div-header > div:nth-child(1) {
+      padding: 10px;
+      text-align: left;
+      width: 25%; }
+    #div-header > div:nth-child(2) {
+      text-align: center;
+      width: 50%; }
+      #div-header > div:nth-child(2) #produto-descricaofiscal {
+        cursor: pointer;
+        font-size: 16px;
+        position: relative;
+        text-shadow: 0px 1px 1px #fff;
+        top: 4px; }
+        #div-header > div:nth-child(2) #produto-descricaofiscal:hover {
+          color: #00f; }
+    #div-header > div:nth-child(3) {
+      padding: 10px;
+      text-align: right;
+      width: 25%; }
+
+#btn-continuar {
+  background-color: #fff;
+  box-shadow: 0px 2px 2px -1px black;
+  border: 1px solid #fafafa;
+  cursor: pointer;
+  display: none;
+  font-size: 10px;
+  padding: 5px 10px;
+  position: absolute;
+  right: 10px;
+  text-align: center;
+  text-shadow: 0px 1px 1px #fff;
+  top: 40px;
+  transition: all linear 100ms; }
+  #btn-continuar:hover {
+    background-color: #bdedc0;
+    border-color: #090; }
+
+#table-selecaoproduto {
+  border-collapse: separate;
+  border-spacing: 10px;
+  height: calc(100% - 50px);
+  width: 100%; }
+  #table-selecaoproduto .gridborder {
+    height: 100%;
+    transition: all linear 200ms; }
+    #table-selecaoproduto .gridborder:hover {
+      border-color: #000; }
+  #table-selecaoproduto .menu-paginacao {
+    font-size: 12px; }
+    #table-selecaoproduto .menu-paginacao span {
+      user-select: none;
+      cursor: pointer; }
+
+#modal-opcoes {
+  display: none; }
+
+#modal-opcoes-content button {
+  height: 40px;
+  margin-bottom: 10px;
+  width: 100%; }
+  #modal-opcoes-content button:last-child {
+    height: 28px;
+    margin-bottom: 7px; }
+#modal-opcoes-content hr {
+  margin-top: 0px; }
+
+#modal-filtroproduto {
+  display: none; }
+
+#modal-filtroproduto-content #div-filtroproduto-checkbox {
+  padding: 15px 30px; }
+#modal-filtroproduto-content #div-filtroproduto-botoes {
+  padding-bottom: 10px;
+  text-align: center; }
+
+#modal-selecaoestabelecimento {
+  display: none; }
+
+#modal-selecaoestabelecimento-content #grid-selecaoestabelecimento {
+  height: 300px; }
+#modal-selecaoestabelecimento-content button {
+  display: block;
+  margin: 10px auto 5px auto; }
+
+h2.grid-title {
+  background-color: #d2dee3;
+  border: 1px solid #000;
+  border-bottom: 0px;
+  box-shadow: inset 0px 0px 0px 2px #fff;
+  font-size: 14px;
+  font-weight: normal;
+  display: none;
+  height: 40px;
+  padding: 0px;
+  padding-top: 11px;
+  position: absolute;
+  margin: 0px;
+  margin-top: -37px;
+  text-align: center;
+  z-index: 1; }
+
+.grid-loading {
+  position: relative; }
+  .grid-loading::after {
+    content: "";
+    background-color: rgba(255, 255, 255, 0.75);
+    height: 100%;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: 1; }
+
+.grid-selected {
+  background-color: #c8c8d1 !important; }
+  .grid-selected input:not([type="checkbox"]):focus, .grid-selected select:not([type="checkbox"]):focus {
+    background-color: #fff !important;
+    box-shadow: inset 0px 0px 0px 2px #00f !important; }
+
+#modal-filtro-content {
+  height: 400px; }
+
+div.ms-drop {
+  overflow-y: auto;
+  height: 110px; }
+
+/*# sourceMappingURL=manutprodutolista.css.map */

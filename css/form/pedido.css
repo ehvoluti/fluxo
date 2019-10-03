@@ -1,0 +1,87 @@
+@charset "UTF-8";
+#divergencia-content {
+  margin: -10px;
+  position: relative; }
+  #divergencia-content, #divergencia-content * {
+    box-sizing: border-box; }
+  #divergencia-content > .fa-close {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+    color: #666;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 4px 5px 4px 6px;
+    position: absolute;
+    right: 5px;
+    top: 4px;
+    transition: all linear 200ms; }
+    #divergencia-content > .fa-close:hover {
+      background-color: #f00;
+      box-shadow: none;
+      color: #fff; }
+  #divergencia-content #tab-divergencia {
+    height: 58px;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: 100%; }
+    #divergencia-content #tab-divergencia li {
+      color: #aaa;
+      cursor: pointer;
+      float: left;
+      font-size: 14px;
+      height: 100%;
+      padding-top: 18px;
+      text-align: center;
+      transition: all linear 100ms;
+      width: 50%; }
+      #divergencia-content #tab-divergencia li:not(.active) {
+        background-color: rgba(0, 0, 0, 0.075); }
+        #divergencia-content #tab-divergencia li:not(.active):hover {
+          background-color: rgba(0, 0, 0, 0.1); }
+      #divergencia-content #tab-divergencia li.active {
+        color: #000;
+        cursor: default; }
+      #divergencia-content #tab-divergencia li i.fa {
+        font-size: 20px;
+        margin-left: 10px;
+        position: relative;
+        top: 2px; }
+        #divergencia-content #tab-divergencia li i.fa.fa-check-circle {
+          color: #00bf1d; }
+        #divergencia-content #tab-divergencia li i.fa.fa-minus-circle {
+          color: #f00; }
+  #divergencia-content .page-divergencia {
+    height: 450px;
+    padding: 15px;
+    width: 100%; }
+    #divergencia-content .page-divergencia #grid-divergencia-validacaoxml {
+      height: 330px;
+      margin: 10px 0px; }
+      #divergencia-content .page-divergencia #grid-divergencia-validacaoxml:empty {
+        background-color: #fafafa;
+        position: relative; }
+        #divergencia-content .page-divergencia #grid-divergencia-validacaoxml:empty:after {
+          content: "Efetue o upload do arquivo XML para iniciar a validação.";
+          color: #aaa;
+          display: block;
+          font-size: 12px;
+          position: absolute;
+          text-align: center;
+          top: 48%;
+          width: 100%; }
+    #divergencia-content .page-divergencia #grid-divergencia-romaneio {
+      height: 368px;
+      margin-bottom: 10px; }
+
+#box_importarcupom p {
+  color: #444;
+  font-size: 11px;
+  margin-top: 5px; }
+
+#grid_embalagemdif {
+  height: 200px;
+  overflow: auto; }
+
+/*# sourceMappingURL=pedido.css.map */
