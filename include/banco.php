@@ -237,3 +237,21 @@ function saldo($banco) {
 	
 	return $resultados;
 }
+
+
+function geraid($tabela, $campo) {
+	
+	/**
+	 * Montamos nossa query SQL para pegar apenas um dado
+	 */
+	$query = "SELECT MAX($campo)+1 AS newid FROM $tabela";
+	
+	$consulta = pg_query($query);
+	//echo $query;	
+	/**
+	 * Guardamos os resultados dentro do array resultados, que será retornado para a aplicação
+	 */
+	$resultados = pg_fetch_assoc($consulta);
+	
+	return $resultados;
+}

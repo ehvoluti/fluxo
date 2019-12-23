@@ -8,13 +8,10 @@ $tabela = $_GET['tabela'];
 $campos = $_GET['campos'];
 
 //Ver dados de um registro apenas 
-$busca = ver($tabela, $campos, $valor); 
+$busca = geraid($tabela, $campos); 
 switch ($tabela) {
-	case "catlancto":
-		echo $busca[codcatlancto]." : ".$busca[descricao];
-		break;
 	case "subcatlancto":
-		echo $busca[codsubcatlancto]." : ".$busca[descricao]." :".$busca[codcatlancto];
+		echo $busca[newid];
 		break;
 }
 ?>
