@@ -38,7 +38,7 @@ $tipos = listar("subcatlancto", "*", NULL, NULL, "descricao", NULL);
                         <!-- Aguardando implementacao-- <td><?php //echo $tipo['previsao']; ?></td>  -->
                         <td>
                             <a href="alterarSubCategoria.php?id=<?php echo $tipo["codsubcatlancto"]; ?>"><i class="fas fa-edit"></i></i></a>
-                            <a href="excluirCategoria.php?id=<?php echo $tipo["codcatlancto"]; ?>"><i class="fas fa-trash-alt"></i></a>
+                            <a href="excluirSubCategoria.php?id=<?php echo $tipo["codsubcatlancto"]; ?>"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

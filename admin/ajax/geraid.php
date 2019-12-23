@@ -13,5 +13,9 @@ switch ($tabela) {
 	case "subcatlancto":
 		echo $busca[newid];
 		break;
+	case "fornecedor":
+		echo $busca[newid];
+		break;
+
 }
 ?>

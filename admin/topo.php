@@ -35,7 +35,7 @@
 					  <a class="dropdown-item" href="categoria.php">Categoria</a>
 					  <a class="dropdown-item" href="subcategoria.php">SubCategoria</a>
 					  <div class="dropdown-divider"></div>
-					  <a class="dropdown-item" href="#">Fornecedor</a>
+					  <a class="dropdown-item" href="fornecedor.php">Fornecedor</a>
 					  <a class="dropdown-item" href="bancos.php">Banco</a>
 					</div>
 				  </li>
