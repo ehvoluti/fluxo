@@ -25,5 +25,9 @@ if(!logado()){
 		<span id="saldo4"></span>
 		</div>
 	</div>
+	<!-- Grafico Inicial -->
+	<div>
+		<?php include('../campari/grf_categoria.php');?>
+	</div>
 </div>	
 <?php include("rodape.php"); ?>

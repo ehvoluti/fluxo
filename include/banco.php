@@ -255,3 +255,20 @@ function geraid($tabela, $campo) {
 	
 	return $resultados;
 }
+
+function grafico($texto) {
+	
+	/**
+	 * Montamos nossa query SQL para pegar apenas um dado
+	 */
+	$query = "SELECT json_agg(temp1) FROM (SELECT catlancto.descricao AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN valorpago*(-1) ELSE valorpago END),0) AS value FROM lancamento INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) WHERE  (EXTRACT(YEAR FROM dtemissao))=(EXTRACT(YEAR FROM CURRENT_DATE)) AND EXTRACT(MONTH FROM dtemissao)=EXTRACT(MONTH FROM CURRENT_DATE)   AND SUBSTR(catlancto.descricao,1,2)<>'X.' GROUP BY 1 ORDER BY 2 DESC ) AS temp1";
+	
+	$consulta = pg_query($query);
+	//echo $query;	
+	/**
+	 * Guardamos os resultados dentro do array resultados, que será retornado para a aplicação
+	 */
+	$resultados = pg_fetch_assoc($consulta);
+	
+	return $resultados;
+}
