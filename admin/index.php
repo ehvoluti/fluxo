@@ -26,8 +26,8 @@ if(!logado()){
 		</div>
 	</div>
 	<!-- Grafico Inicial -->
-	<div>
-		<?php include('../campari/grf_categoria.php');?>
+	<div> ---
+		<?php //include('../campari/grf_categoria.php');?>
 	</div>
 </div>	
 <?php include("rodape.php"); ?>

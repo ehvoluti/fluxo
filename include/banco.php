@@ -256,12 +256,75 @@ function geraid($tabela, $campo) {
 	return $resultados;
 }
 
-function grafico($texto) {
+function grafico($filtro_ano, $filtro_mes, $filtro_categoria) {
+
+	if ($filtro_ano) {
+    	$filtro=$filtro_ano; 
+	} else {
+			$filtro="(EXTRACT(YEAR FROM CURRENT_DATE))";
+	} 
+
+	if (STRLEN($filtro_mes)>5) {
+    	$filtro_mes=$filtro_mes; 
+	} else {
+			$filtro_mes="(EXTRACT(MONTH FROM CURRENT_DATE)) AND (EXTRACT(MONTH FROM CURRENT_DATE)) ";
+	} 
+
+	if (STRLEN($filtro_categoria)>0) {
+    	$categoria = $filtro_categoria; 
+    	$query = "SELECT json_agg(temp1) FROM (SELECT CASE WHEN SUBSTR(subcatlancto.descricao,2,1)='.' THEN SUBSTR(subcatlancto.descricao,3,9) ELSE subcatlancto.descricao END AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN 			valorpago*(-1) ELSE valorpago END),0) AS value 
+					FROM lancamento 
+					INNER JOIN subcatlancto ON (lancamento.codsubcatlancto = subcatlancto.codsubcatlancto) 
+					INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) 
+					WHERE  (EXTRACT(YEAR FROM dtemissao))=$filtro
+					AND EXTRACT(MONTH FROM dtemissao) BETWEEN $filtro_mes
+					AND SUBSTR(catlancto.descricao,1,2)<>'X.' 
+					AND lancamento.codcatlancto = $categoria
+					GROUP BY 1 ORDER BY 2 DESC ) AS temp1";
+	} else {
+			$query = "SELECT json_agg(temp1) FROM (SELECT CASE WHEN SUBSTR(catlancto.descricao,2,1)='.' THEN SUBSTR(catlancto.descricao,3,9) ELSE catlancto.descricao END AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN 	valorpago*(-1) ELSE valorpago END),0) AS value 
+					FROM lancamento 
+					INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) 
+					WHERE  (EXTRACT(YEAR FROM dtemissao))=$filtro
+					AND EXTRACT(MONTH FROM dtemissao) BETWEEN $filtro_mes
+					AND SUBSTR(catlancto.descricao,1,2)<>'X.' 
+					GROUP BY 1 ORDER BY 2 DESC ) AS temp1";
+	
+	} 
+
+
+
+	$consulta = pg_query($query);
+	//echo $query;	
+	/**
+	 * Guardamos os resultados dentro do array resultados, que será retornado para a aplicação
+	 */
+	$resultados = pg_fetch_assoc($consulta);
+	
+	return $resultados;
+}
+
+
+function grafico2($texto) {
 	
 	/**
 	 * Montamos nossa query SQL para pegar apenas um dado
 	 */
-	$query = "SELECT json_agg(temp1) FROM (SELECT catlancto.descricao AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN valorpago*(-1) ELSE valorpago END),0) AS value FROM lancamento INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) WHERE  (EXTRACT(YEAR FROM dtemissao))=(EXTRACT(YEAR FROM CURRENT_DATE)) AND EXTRACT(MONTH FROM dtemissao)=EXTRACT(MONTH FROM CURRENT_DATE)   AND SUBSTR(catlancto.descricao,1,2)<>'X.' GROUP BY 1 ORDER BY 2 DESC ) AS temp1";
+	$query = "SELECT json_agg(label) AS label,json_agg(value) AS value, json_agg(prev) AS prev FROM (
+
+SELECT label, SUM(value) AS value, SUM(prev) AS prev FROM (
+SELECT catlancto.descricao AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN valorpago*(-1) ELSE valorpago END),0) AS value, 0 AS prev
+FROM lancamento INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) 
+WHERE  (EXTRACT(YEAR FROM dtemissao))=(EXTRACT(YEAR FROM CURRENT_DATE)) AND EXTRACT(MONTH FROM dtemissao)=EXTRACT(MONTH FROM CURRENT_DATE)   
+AND SUBSTR(catlancto.descricao,1,2)<>'X.' GROUP BY 1 
+UNION ALL
+SELECT catlancto.descricao AS label, 0 AS value, ROUND(SUM(CASE WHEN pagrec='R' THEN valorpago*(-1) ELSE valorpago END)/12,0) AS prev
+FROM lancamento INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) 
+WHERE  (EXTRACT(YEAR FROM dtemissao))=(EXTRACT(YEAR FROM CURRENT_DATE))-1
+AND SUBSTR(catlancto.descricao,1,2)<>'X.' GROUP BY 1 
+) AS dados GROUP BY 1
+
+) AS temp1";
 	
 	$consulta = pg_query($query);
 	//echo $query;	
