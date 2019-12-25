@@ -1,8 +1,6 @@
 <?php 
-
 require("../include/config.php");
 $catlancto = listar("catlancto", "*", null, null, " codcatlancto");
-
 require("topo.php"); 
 ?>
 

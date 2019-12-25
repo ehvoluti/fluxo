@@ -147,7 +147,7 @@ function listar($tabela, $campos, $onde = null, $filtro = null, $ordem = null, $
 	if(!empty($limite)) {
 		$query .= " LIMIT $limite";
 	}
-	
+	//echo $query;
 	/**
 	 * Preparamos e executamos nossa query
 	 */
@@ -203,13 +203,13 @@ function ver($tabela, $campos, $onde) {
 	return $resultados;
 }
 
-function combocat($onde) {
+function combocat($tabela, $campos, $onde = null) {
 	
 	/**
 	 * Montamos nossa query SQL para pegar apenas um dado
 	 */
-	$query = "SELECT codsubcatlancto, descricao FROM subcatlancto WHERE codcatlancto = $onde;";
-	
+	$query = "SELECT $campos FROM $tabela WHERE $onde";
+	//echo $query;
 	$consulta = pg_query($query);
 	//echo $query;	
 	/**

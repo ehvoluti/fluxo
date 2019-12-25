@@ -46,7 +46,7 @@ require("topo.php");
                 <label>Categoria</label>
                 <div>
                     <div class="form-group ">
-                        <select class="form-control col-5 col-xl-4 col-sm-5 " name="codcatlancto" id="codcatlancto">
+                        <select class="form-control col-5 col-xl-4 col-sm-5 " name="codcatlancto" id="codcatlancto" onchange="loadSubCat();">
                             <?php  foreach ($catlancto as $xcatlancto): ?>
                                 <option value="<?php echo $xcatlancto['codcatlancto'];?>"><?php echo $xcatlancto['descricao'];?></option> 
                             <?php endforeach; ?>
@@ -58,12 +58,9 @@ require("topo.php");
                 <div>
                     <div class="form-group ">
                         <select class="form-control col-5 col-xl-4 col-sm-5 " name="codsubcatlancto" id="codsubcatlancto">
-                            <?php  foreach ($subcatlancto as $xsubcatlancto): ?>
-                                <option value="<?php echo $xsubcatlancto['codsubcatlancto'];?>"><?php echo $xsubcatlancto['descricao'];?></option> 
-                            <?php endforeach; ?>
                         </select> 
                     </div>
-                </div>
+                </div><br>
 
 
 
@@ -79,3 +76,5 @@ require("topo.php");
 
 </div>
 </html>
+
+<script src="js/fornecedor.js"></script>

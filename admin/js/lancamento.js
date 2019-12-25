@@ -9,8 +9,18 @@ $(function(){
 function getFornec()
 {
 	var selector = document.getElementById('codparceiro').value;
-	var passavalor 		 = document.getElementById('dtlfornec').options.namedItem(selector).text;
+	var passavalor = document.getElementById('dtlfornec').options.namedItem(selector).text;
 	document.getElementById("fornecedor").innerHTML = passavalor; 
+
+	//Tratamento para recarregar banco
+	$.ajax({
+		url: 'ajax/ver.php',
+		data:{tabela:'fornecedor',campos:'*',valor:`codfornec=`+selector},
+		success:function(retorno){
+			let retorno2 = retorno.split(":")
+			document.getElementById('banco').value = retorno2[2]
+		}
+	})
 
 }
 
@@ -30,25 +40,7 @@ function limitachar() {
 }
 
 
-
-/*Ver Saldo em carteira */
-/*
-function versaldo() {
-	var saldo4 = document.getElementById('saldo4')
-	var textospan = saldo4.innerText
-	var saldo = document.getElementById('saldotemp')
-	//var saldo = "<?php $versaldo = saldo(4); echo $versaldo[saldo]; ?>"
-	//	saldo4.innerHTML += teste
-//	teste.innerHTML +=saldo4.innerText
-	if (textospan.length==0) {
-		saldo4.innerHTML = ` Saldo em pessoal = ` + saldo.innerText
-	} else {
-		saldo4.innerHTML = ``			
-	}
-
-}
-*/
-
+//Buscar Saldo do banco ao passar codbanco
 function versaldo(valor) {
 	var saldo4 = document.getElementById('saldo4')
 	var textospan = saldo4.innerText
