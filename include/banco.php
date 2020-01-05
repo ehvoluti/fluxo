@@ -256,12 +256,12 @@ function geraid($tabela, $campo) {
 	return $resultados;
 }
 
-function grafico($filtro_ano, $filtro_mes, $filtro_categoria) {
+function grafico($tipo, $filtro_ano, $filtro_mes, $filtro_categoria) {
 
-	if ($filtro_ano) {
+	if (STRLEN($filtro_ano)>5) {
     	$filtro=$filtro_ano; 
 	} else {
-			$filtro="(EXTRACT(YEAR FROM CURRENT_DATE))";
+			$filtro="(EXTRACT(YEAR FROM CURRENT_DATE)) AND (EXTRACT(YEAR FROM CURRENT_DATE))";
 	} 
 
 	if (STRLEN($filtro_mes)>5) {
@@ -270,7 +270,64 @@ function grafico($filtro_ano, $filtro_mes, $filtro_categoria) {
 			$filtro_mes="(EXTRACT(MONTH FROM CURRENT_DATE)) AND (EXTRACT(MONTH FROM CURRENT_DATE)) ";
 	} 
 
+	$categoria = "TRUE";
 	if (STRLEN($filtro_categoria)>0) {
+		$categoria ="lancamento.codcatlancto =". $filtro_categoria; 
+	} 
+
+
+	switch ($tipo) {
+	case "SUBCATEGORIA":
+    	$query = "SELECT json_agg(temp1) FROM (SELECT CASE WHEN SUBSTR(subcatlancto.descricao,2,1)='.' THEN SUBSTR(subcatlancto.descricao,3,9) ELSE subcatlancto.descricao END AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN 			valorpago*(-1) ELSE valorpago END),0) AS value 
+					FROM lancamento 
+					INNER JOIN subcatlancto ON (lancamento.codsubcatlancto = subcatlancto.codsubcatlancto) 
+					INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) 
+					WHERE  (EXTRACT(YEAR FROM dtemissao)) BETWEEN $filtro
+					AND EXTRACT(MONTH FROM dtemissao) BETWEEN $filtro_mes
+					AND SUBSTR(catlancto.descricao,1,2)<>'X.' 
+					AND $categoria
+					GROUP BY 1 ORDER BY 2 DESC ) AS temp1";
+
+		break;
+	case "CATEGORIA":
+		$query = "SELECT json_agg(temp1) FROM (SELECT CASE WHEN SUBSTR(catlancto.descricao,2,1)='.' THEN SUBSTR(		catlancto.descricao,3,9) ELSE catlancto.descricao END AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN 	valorpago*(-1) ELSE valorpago END),0) AS value 
+					FROM lancamento 
+					INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) 
+					WHERE  (EXTRACT(YEAR FROM dtemissao)) BETWEEN $filtro
+					AND EXTRACT(MONTH FROM dtemissao) BETWEEN $filtro_mes
+					AND SUBSTR(catlancto.descricao,1,2)<>'X.' 
+					GROUP BY 1 ORDER BY 2 DESC ) AS temp1";
+
+		break;
+	case "ANO":
+		$query = "SELECT json_agg(temp1) FROM (
+					SELECT 'Ano:'||EXTRACT(YEAR FROM dtemissao) AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN valorpago*(-1) ELSE valorpago END),0) AS value 
+					FROM lancamento 
+					INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) 
+					WHERE  (EXTRACT(YEAR FROM dtemissao)) BETWEEN $filtro
+					AND EXTRACT(MONTH FROM dtemissao) BETWEEN $filtro_mes
+					AND SUBSTR(catlancto.descricao,1,2)<>'X.'
+					AND $categoria
+					GROUP BY 1 ORDER BY 1
+				) AS temp1";
+
+		break;
+	case "MES":
+		$query = "SELECT json_agg(temp1) FROM (
+					SELECT 'Mes:'||LPAD(CAST(EXTRACT(MONTH FROM dtemissao) AS CHAR(2)),2,'0') AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN valorpago*(-1) ELSE valorpago END),0) AS value 
+					FROM lancamento 
+					INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) 
+					WHERE  (EXTRACT(YEAR FROM dtemissao)) BETWEEN $filtro
+					AND EXTRACT(MONTH FROM dtemissao) BETWEEN $filtro_mes
+					AND SUBSTR(catlancto.descricao,1,2)<>'X.'
+					AND $categoria
+					GROUP BY 1 ORDER BY 1 
+				) AS temp1";
+
+		break;
+	}
+
+	/*if (STRLEN($filtro_categoria)>0) {
     	$categoria = $filtro_categoria; 
     	$query = "SELECT json_agg(temp1) FROM (SELECT CASE WHEN SUBSTR(subcatlancto.descricao,2,1)='.' THEN SUBSTR(subcatlancto.descricao,3,9) ELSE subcatlancto.descricao END AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN 			valorpago*(-1) ELSE valorpago END),0) AS value 
 					FROM lancamento 
@@ -290,10 +347,10 @@ function grafico($filtro_ano, $filtro_mes, $filtro_categoria) {
 					AND SUBSTR(catlancto.descricao,1,2)<>'X.' 
 					GROUP BY 1 ORDER BY 2 DESC ) AS temp1";
 	
-	} 
+	} */
 
 
-
+	//echo $query;
 	$consulta = pg_query($query);
 	//echo $query;	
 	/**
@@ -308,7 +365,7 @@ function grafico($filtro_ano, $filtro_mes, $filtro_categoria) {
 function grafico2($texto) {
 	
 	/**
-	 * Montamos nossa query SQL para pegar apenas um dado
+	 * Não esta em uso ainda
 	 */
 	$query = "SELECT json_agg(label) AS label,json_agg(value) AS value, json_agg(prev) AS prev FROM (
 
