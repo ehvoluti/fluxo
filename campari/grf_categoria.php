@@ -187,10 +187,10 @@ require("../include/config.php");
         // Chart Configuration
         "chart": {
             "caption": "Despesas por Categoria",
-            "subCaption": "Mes e Ano atual apenas",
+            "subCaption": "Mes e Ano atual apenas Total Dash: "+<?php echo $texto[total]; ?>+".00",
             "xAxisName": "Filtros:<br>Ano: <?php echo $filtro;?> Mes:<?php echo $filtro_mes;?> Categoria:<?php echo $filtro_categoria;?>",
             //"yAxisName": "Valores",
-			"numberPrefix": "R$",
+            "numberPrefix": "R$",
             //"numberSuffix": "R$",
             "theme": "fusion",
         },
@@ -227,4 +227,3 @@ require("../include/config.php");
     fusioncharts.render();
     });
 </script>
-

@@ -278,7 +278,7 @@ function grafico($tipo, $filtro_ano, $filtro_mes, $filtro_categoria) {
 
 	switch ($tipo) {
 	case "SUBCATEGORIA":
-    	$query = "SELECT json_agg(temp1) FROM (SELECT CASE WHEN SUBSTR(subcatlancto.descricao,2,1)='.' THEN SUBSTR(subcatlancto.descricao,3,9) ELSE subcatlancto.descricao END AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN 			valorpago*(-1) ELSE valorpago END),0) AS value 
+    	$query = "SELECT json_agg(temp1), SUM(value) AS total  FROM (SELECT CASE WHEN SUBSTR(subcatlancto.descricao,2,1)='.' THEN SUBSTR(subcatlancto.descricao,3,9) ELSE subcatlancto.descricao END AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN 			valorpago*(-1) ELSE valorpago END),0) AS value 
 					FROM lancamento 
 					INNER JOIN subcatlancto ON (lancamento.codsubcatlancto = subcatlancto.codsubcatlancto) 
 					INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) 
@@ -290,7 +290,7 @@ function grafico($tipo, $filtro_ano, $filtro_mes, $filtro_categoria) {
 
 		break;
 	case "CATEGORIA":
-		$query = "SELECT json_agg(temp1) FROM (SELECT CASE WHEN SUBSTR(catlancto.descricao,2,1)='.' THEN SUBSTR(		catlancto.descricao,3,9) ELSE catlancto.descricao END AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN 	valorpago*(-1) ELSE valorpago END),0) AS value 
+		$query = "SELECT json_agg(temp1), SUM(value) AS total  FROM (SELECT CASE WHEN SUBSTR(catlancto.descricao,2,1)='.' THEN SUBSTR(		catlancto.descricao,3,9) ELSE catlancto.descricao END AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN 	valorpago*(-1) ELSE valorpago END),0) AS value 
 					FROM lancamento 
 					INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) 
 					WHERE  (EXTRACT(YEAR FROM dtemissao)) BETWEEN $filtro
@@ -300,7 +300,7 @@ function grafico($tipo, $filtro_ano, $filtro_mes, $filtro_categoria) {
 
 		break;
 	case "ANO":
-		$query = "SELECT json_agg(temp1) FROM (
+		$query = "SELECT json_agg(temp1), SUM(value) AS total  FROM (
 					SELECT 'Ano:'||EXTRACT(YEAR FROM dtemissao) AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN valorpago*(-1) ELSE valorpago END),0) AS value 
 					FROM lancamento 
 					INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) 
@@ -313,7 +313,7 @@ function grafico($tipo, $filtro_ano, $filtro_mes, $filtro_categoria) {
 
 		break;
 	case "MES":
-		$query = "SELECT json_agg(temp1) FROM (
+		$query = "SELECT json_agg(temp1), SUM(value) AS total  FROM (
 					SELECT 'Mes:'||LPAD(CAST(EXTRACT(MONTH FROM dtemissao) AS CHAR(2)),2,'0') AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN valorpago*(-1) ELSE valorpago END),0) AS value 
 					FROM lancamento 
 					INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) 
@@ -326,29 +326,6 @@ function grafico($tipo, $filtro_ano, $filtro_mes, $filtro_categoria) {
 
 		break;
 	}
-
-	/*if (STRLEN($filtro_categoria)>0) {
-    	$categoria = $filtro_categoria; 
-    	$query = "SELECT json_agg(temp1) FROM (SELECT CASE WHEN SUBSTR(subcatlancto.descricao,2,1)='.' THEN SUBSTR(subcatlancto.descricao,3,9) ELSE subcatlancto.descricao END AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN 			valorpago*(-1) ELSE valorpago END),0) AS value 
-					FROM lancamento 
-					INNER JOIN subcatlancto ON (lancamento.codsubcatlancto = subcatlancto.codsubcatlancto) 
-					INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) 
-					WHERE  (EXTRACT(YEAR FROM dtemissao))=$filtro
-					AND EXTRACT(MONTH FROM dtemissao) BETWEEN $filtro_mes
-					AND SUBSTR(catlancto.descricao,1,2)<>'X.' 
-					AND lancamento.codcatlancto = $categoria
-					GROUP BY 1 ORDER BY 2 DESC ) AS temp1";
-	} else {
-			$query = "SELECT json_agg(temp1) FROM (SELECT CASE WHEN SUBSTR(catlancto.descricao,2,1)='.' THEN SUBSTR(catlancto.descricao,3,9) ELSE catlancto.descricao END AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN 	valorpago*(-1) ELSE valorpago END),0) AS value 
-					FROM lancamento 
-					INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) 
-					WHERE  (EXTRACT(YEAR FROM dtemissao))=$filtro
-					AND EXTRACT(MONTH FROM dtemissao) BETWEEN $filtro_mes
-					AND SUBSTR(catlancto.descricao,1,2)<>'X.' 
-					GROUP BY 1 ORDER BY 2 DESC ) AS temp1";
-	
-	} */
-
 
 	//echo $query;
 	$consulta = pg_query($query);
