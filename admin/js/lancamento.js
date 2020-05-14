@@ -5,20 +5,19 @@ $(function(){
 		$('[data-toggle="tooltip"]').tooltip()
 	});
 
-/* Mostra nome do fornecedor após seleção do Código do mesmo */
+/* Mostra nome do Categoria e SubCat após seleção do Código do mesmo */
 function getFornec()
 {
 	var selector = document.getElementById('codparceiro').value;
-	var passavalor = document.getElementById('dtlfornec').options.namedItem(selector).text;
-	document.getElementById("fornecedor").innerHTML = passavalor; 
-
-	//Tratamento para recarregar banco
+	var codparceiro = selector.split(":")
+	codparceiro[0]
+	//Tratamento para carregar a Categoria e Sub do fornecedor selecionado
 	$.ajax({
-		url: 'ajax/ver.php',
-		data:{tabela:'fornecedor',campos:'*',valor:`codfornec=`+selector},
+		url: 'ajax/ver_categ_fornec.php',
+		data:{tabela:'fornecedor',campos:` (SELECT cat.descricao||' >> '||sub.descricao FROM catlancto as cat INNER JOIN subcatlancto as sub ON (cat.codcatlancto=sub.codcatlancto) WHERE sub.codsubcatlancto=fornecedor.codsubcatlancto) as categ `,valor:`codfornec=`+codparceiro[0]},
 		success:function(retorno){
-			let retorno2 = retorno.split(":")
-			document.getElementById('banco').value = retorno2[2]
+			//console.log(retorno)
+			document.getElementById("fornecedor").innerHTML = retorno; 
 		}
 	})
 

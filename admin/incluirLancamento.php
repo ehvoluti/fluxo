@@ -4,10 +4,19 @@ require("../include/config.php");
 $banco = listar("banco", "*", null, null, " codbanco");
 $fornecedor = listar("fornecedor", "*", null, null, " nome");
 
+//var_dump($_POST);
+//$temp_codparceiro = explode(":", $_POST[codparceiro]);
+//$_POST[codparceiro] = $temp_codparceiro[0];
+
 //echo $_POST;
 if($_POST) {
+	
+	$temp_codparceiro = explode(":", $_POST[codparceiro]);
+	$_POST[codparceiro] = $temp_codparceiro[0];
+
     if (inserir("lancamentogru", $_POST)){
         header('Location: lancamento.php');
+
     }
 }
 
@@ -51,7 +60,7 @@ if($_POST) {
 							<input type="text" id="codparceiro" name="codparceiro" list="dtlfornec" class="form-control col-5 col-xl-4 col-sm-5 form-group" onchange="getFornec();">
 							<datalist id="dtlfornec" >
 								<?php  foreach ($fornecedor as $xfornecedor): ?>
-								<option id="<?php echo $xfornecedor['codfornec'];?>" value="<?php echo $xfornecedor['codfornec'];?>"><?php echo $xfornecedor['nome'];?></option>
+								<option id="<?php echo $xfornecedor['codfornec'];?>" value="<?php echo $xfornecedor['codfornec'].' : '.$xfornecedor['nome'];?>"></option>
 								<?php endforeach; ?>
 							</datalist>	
 					</div>
