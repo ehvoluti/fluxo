@@ -241,21 +241,33 @@ require("../include/config.php");
           
           const data = retorno
           var i = 0
+        //Apagando elemento TD se houver
+        let td = document.querySelectorAll('td');
+        for(item in td) 
+        if(td[item].parentNode) td[item].parentNode.removeChild(td[item]);
 
         data.forEach(obj => {
+
+
+
+            //Variavel para incrementar ID ao TR
             i++
+            //Criando o TR
+            var x = document.createElement("TR");
+            x.setAttribute("id", i+str);
+            document.getElementById("listaItens").appendChild(x);
+
+            //FOR que percorre JSON
             Object.entries(obj).forEach(([key, value]) => {
-                console.log(i + ` ${key} ${value}`);
+                console.log(i+str + ` ${key} ${value}`);
 
-              var x = document.createElement("TR");
-              x.setAttribute("id", i);
-              document.getElementById("listaItens").appendChild(x);
 
-              //Codlancto
+
+              //Criando TD para os itens
               var y = document.createElement("TD");
               var t = document.createTextNode(`${value}`);
               y.appendChild(t);
-              document.getElementById(i).appendChild(y);                      
+              document.getElementById(i+str).appendChild(y);                      
 
               //Favorecido
               /*
