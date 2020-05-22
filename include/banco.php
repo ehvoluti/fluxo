@@ -183,7 +183,7 @@ function ver($tabela, $campos, $onde) {
 	
 	$query .= " WHERE $onde";
 	
-	//echo $query;
+	
 	/**
 	 * Limitamos para apenas 1 resultado
 	 */
@@ -192,7 +192,7 @@ function ver($tabela, $campos, $onde) {
 	/**
 	 * Preparamos e executamos nossa query
 	 */
-	
+	//echo $query;
 	$consulta = pg_query($query);
 	
 	/**
@@ -278,7 +278,8 @@ function grafico($tipo, $filtro_ano, $filtro_mes, $filtro_categoria) {
 
 	switch ($tipo) {
 	case "SUBCATEGORIA":
-    	$query = "SELECT json_agg(temp1), SUM(value) AS total  FROM (SELECT CASE WHEN SUBSTR(subcatlancto.descricao,2,1)='.' THEN SUBSTR(subcatlancto.descricao,3,9) ELSE subcatlancto.descricao END AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN 			valorpago*(-1) ELSE valorpago END),0) AS value 
+    	$query = "SELECT json_agg(temp1), SUM(value) AS total  FROM (SELECT CASE WHEN SUBSTR(subcatlancto.descricao,2,1)='.' THEN SUBSTR(subcatlancto.descricao,3,9) ELSE subcatlancto.descricao END AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN 			valorpago*(-1) ELSE valorpago END),0) AS value
+    		,'j-showAlert-'||'codcatlancto='||lancamento.codcatlancto||' AND codsubcatlancto='||lancamento.codsubcatlancto|| ' AND (EXTRACT(YEAR FROM dtemissao)) BETWEEN $filtro AND EXTRACT(MONTH FROM dtemissao) BETWEEN  $filtro_mes AND codcatlancto NOT IN (SELECT codcatlancto FROM catlancto WHERE debcred=''C'')' as link
 					FROM lancamento 
 					INNER JOIN subcatlancto ON (lancamento.codsubcatlancto = subcatlancto.codsubcatlancto) 
 					INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) 
@@ -286,42 +287,57 @@ function grafico($tipo, $filtro_ano, $filtro_mes, $filtro_categoria) {
 					AND EXTRACT(MONTH FROM dtemissao) BETWEEN $filtro_mes
 					AND SUBSTR(catlancto.descricao,1,2)<>'X.' 
 					AND $categoria
-					GROUP BY 1 ORDER BY 2 DESC ) AS temp1";
+					GROUP BY 1,3 ORDER BY 2 DESC ) AS temp1";
 
 		break;
 	case "CATEGORIA":
-		$query = "SELECT json_agg(temp1), SUM(value) AS total  FROM (SELECT CASE WHEN SUBSTR(catlancto.descricao,2,1)='.' THEN SUBSTR(		catlancto.descricao,3,9) ELSE catlancto.descricao END AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN 	valorpago*(-1) ELSE valorpago END),0) AS value 
+		$query = "SELECT json_agg(temp1), SUM(value) AS total  FROM (
+					
+					SELECT CASE WHEN SUBSTR(catlancto.descricao,2,1)='.' THEN SUBSTR(catlancto.descricao,3,9) ELSE catlancto.descricao END AS label
+					,ROUND(SUM(CASE WHEN pagrec='R' THEN 	valorpago*(-1) ELSE valorpago END),0) AS value
+					,'j-showAlert-'||'codcatlancto='||lancamento.codcatlancto|| ' AND (EXTRACT(YEAR FROM dtemissao)) BETWEEN $filtro AND EXTRACT(MONTH FROM dtemissao) BETWEEN $filtro_mes 
+						AND codcatlancto NOT IN (SELECT codcatlancto FROM catlancto WHERE debcred=''C'') 
+						AND $categoria' as link
 					FROM lancamento 
 					INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) 
 					WHERE  (EXTRACT(YEAR FROM dtemissao)) BETWEEN $filtro
 					AND EXTRACT(MONTH FROM dtemissao) BETWEEN $filtro_mes
 					AND SUBSTR(catlancto.descricao,1,2)<>'X.' 
-					GROUP BY 1 ORDER BY 2 DESC ) AS temp1";
+					GROUP BY 1,3 ORDER BY 2 DESC 
+					) AS temp1";
 
 		break;
 	case "ANO":
 		$query = "SELECT json_agg(temp1), SUM(value) AS total  FROM (
-					SELECT 'Ano:'||EXTRACT(YEAR FROM dtemissao) AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN valorpago*(-1) ELSE valorpago END),0) AS value 
+					SELECT 'Ano:'||EXTRACT(YEAR FROM dtemissao) AS label, 
+					ROUND(SUM(CASE WHEN pagrec='R' THEN valorpago*(-1) ELSE valorpago END),0) AS value
+					,'j-showAlert-'||' (EXTRACT(YEAR FROM dtemissao))='||EXTRACT(YEAR FROM dtemissao)||' AND EXTRACT(MONTH FROM dtemissao) BETWEEN  $filtro_mes  
+					AND codcatlancto NOT IN (SELECT codcatlancto FROM catlancto WHERE debcred=''C'') 
+					AND $categoria'  as link
 					FROM lancamento 
 					INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) 
 					WHERE  (EXTRACT(YEAR FROM dtemissao)) BETWEEN $filtro
 					AND EXTRACT(MONTH FROM dtemissao) BETWEEN $filtro_mes
 					AND SUBSTR(catlancto.descricao,1,2)<>'X.'
 					AND $categoria
-					GROUP BY 1 ORDER BY 1
+					GROUP BY 1, EXTRACT(YEAR FROM dtemissao) ORDER BY 1
 				) AS temp1";
 
 		break;
 	case "MES":
 		$query = "SELECT json_agg(temp1), SUM(value) AS total  FROM (
-					SELECT 'Mes:'||LPAD(CAST(EXTRACT(MONTH FROM dtemissao) AS CHAR(2)),2,'0') AS label, ROUND(SUM(CASE WHEN pagrec='R' THEN valorpago*(-1) ELSE valorpago END),0) AS value 
+					SELECT 'Mes:'||LPAD(CAST(EXTRACT(MONTH FROM dtemissao) AS CHAR(2)),2,'0') AS label, 
+					ROUND(SUM(CASE WHEN pagrec='R' THEN valorpago*(-1) ELSE valorpago END),0) AS value 
+					,'j-showAlert-'||' (EXTRACT(YEAR FROM dtemissao)) BETWEEN $filtro'||' AND EXTRACT(MONTH FROM dtemissao)='||EXTRACT(MONTH FROM dtemissao)|| ' 
+					AND codcatlancto NOT IN (SELECT codcatlancto FROM catlancto WHERE debcred=''C'')
+					AND $categoria ' as link
 					FROM lancamento 
 					INNER JOIN catlancto ON (lancamento.codcatlancto = catlancto.codcatlancto) 
 					WHERE  (EXTRACT(YEAR FROM dtemissao)) BETWEEN $filtro
 					AND EXTRACT(MONTH FROM dtemissao) BETWEEN $filtro_mes
 					AND SUBSTR(catlancto.descricao,1,2)<>'X.'
 					AND $categoria
-					GROUP BY 1 ORDER BY 1 
+					GROUP BY 1,EXTRACT(MONTH FROM dtemissao) ORDER BY 1 
 				) AS temp1";
 
 		break;
