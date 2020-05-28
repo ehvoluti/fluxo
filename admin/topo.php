@@ -55,7 +55,7 @@
 					  Relatórios
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					  <a class="dropdown-item" href="dashboards.php">Dashboards</a>			
+					  <a class="dropdown-item" href="dashboards2.php">Dashboards</a>			
 					  <a class="dropdown-item" href="#">Extrato</a>
 					  <a class="dropdown-item" href="#">Fluxo de Caixa</a>
 					  <a class="dropdown-item" href="#">Categoria Anual</a>

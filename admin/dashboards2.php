@@ -59,15 +59,18 @@ if ($_GET['filtrar_tipo']) {
 
 
     <div id="chart-container">FusionCharts: dados do Grafico</div>
-    <div id="msg" class="pt-0">Recebe valor</div>
+    <!--<div id="msg" class="pt-0">Recebe valor</div> -->
 
     <div class="form-group">
+        <table  class="table table-sm table-responsive-sm table-responsive-md" id="totais">
+            <thead class="thead-white"></thead>
+        </table>
+
         <table  class="table table-sm table-responsive-sm table-responsive-md" id="listaItens">
             <thead class="thead-dark">
                 <tr>
-                    <th>Cod</th>
                     <th>Favorecido</th>
-                   <!-- <th >Referencia</th> -->
+                    <th>Referencia</th>
                     <th>Valor</th>
                 </tr>
             </thead>
@@ -200,11 +203,12 @@ if ($_GET['filtrar_tipo']) {
 <!-- Fim do Modal-->
 
 <script type="text/javascript">
+    const total_filtrado = "<?php echo $texto[total]; ?>"
     const dataSource = {
         // Chart Configuration
         "chart": {
             "caption": "Despesas por Categoria",
-            "subCaption": "Mes e Ano atual apenas Total Dash: "+<?php echo $texto[total]; ?>+".00",
+            "subCaption": "Mes e Ano atual apenas Total Dash: "+total_filtrado+".00",
             "xAxisName": "Filtros:<br>Ano: <?php echo $filtro;?> Mes:<?php echo $filtro_mes;?> Categoria:<?php echo $filtro_categoria;?>",
             //"yAxisName": "Valores",
             "numberPrefix": "R$",
@@ -233,100 +237,114 @@ if ($_GET['filtrar_tipo']) {
               //document.getElementById("msg").innerHTML = "Categoria " + arr[0];
 
         $.ajax({
-        type:'GET',
-        dataType: 'json',
-        url: 'ajax/ver_lancto.php',
-        data:{tabela:'lancamento',onde:arr[0]},
-        success:async function(retorno){
-          console.log(retorno)
-          //console.info(retorno)
-          
-          const data = retorno
-          var i = 0
-          var subtot = 0
-        //Apagando elemento TD se houver
-        let td = document.querySelectorAll('td');
-        for(item in td) 
-        if(td[item].parentNode) td[item].parentNode.removeChild(td[item]);
+                    type:'GET',
+                    dataType: 'json',
+                    url: 'ajax/ver_lancto.php',
+                    data:{tabela:'lancamento',onde:arr[0]},
+                    success:async function sucesso(retorno){
+                      //console.log(retorno)
+                      //console.info(retorno)
+                      
+                      const data = retorno
+                      var i = 0
+                      var subtot = 0
+                    //Apagando elemento TD se houver
+                    let td = document.querySelectorAll('td');
+                    for(item in td) 
+                    if(td[item].parentNode) td[item].parentNode.removeChild(td[item]);
 
-        data.forEach(obj => {
+                    data.forEach(obj => {
 
-            //Variavel para incrementar ID ao TR
-            i++
-            //Criando o TR
-            var x = document.createElement("TR");
-            x.setAttribute("id", i);
+                        //Variavel para incrementar ID ao TR
+                        i++
+                        //Criando o TR
+                        var x = document.createElement("TR");
+                        x.setAttribute("id", i);
 
-            document.getElementById("listaItens").appendChild(x);
+                        document.getElementById("listaItens").appendChild(x);
 
-            //FOR que percorre JSON
-            Object.entries(obj).forEach(([key, value]) => {
-                //console.log(i + ` ${key} ${value}`);
-
-
-
-              //Criando TD para os itens
-              var y = document.createElement("TD");
-              /*Verifica se o campo é o valor*/
-              if(`${key}`=="valorpago") {
-                y.setAttribute("style", "text-align: right");
-                subtot+=parseFloat(`${value}`)
-              }  
-              var t = document.createTextNode(`${value}`);
-              y.appendChild(t);
-              document.getElementById(i).appendChild(y);                      
-
-              //Favorecido
-              /*
-              var y = document.createElement("TD");
-              var t = document.createTextNode(`${value}`);
-              y.appendChild(t);
-              document.getElementById(i).appendChild(y);                      
-*/
+                        //FOR que percorre JSON
+                        Object.entries(obj).forEach(([key, value]) => {
+                            //console.log(i + ` ${key} ${value}`);
 
 
-            });
- 
-            //console.log('-------------------');
-        });
-            //Criando Totalizador
-            //console.log("Total" + subtot)
-            var x = document.createElement("TR");
-            x.setAttribute("id", "total");
 
-            document.getElementById("listaItens").appendChild(x);
-            c=1
-            while (c <= 2) {
-                var y = document.createElement("TD");
-                var t = document.createTextNode("----");
-                y.appendChild(t);
-                document.getElementById("total").appendChild(y);
-                c++
-            }
+                          //Criando TD para os itens
+                          var y = document.createElement("TD");
+                          /*Verifica se o campo é o valor*/
+                          if(`${key}`=="valorpago") {
+                            y.setAttribute("style", "text-align: right");
+                            subtot+=parseFloat(`${value}`)
+                          }  
+                          var t = document.createTextNode(`${value}`);
+                          y.appendChild(t);
+                          document.getElementById(i).appendChild(y);                      
 
-            var y = document.createElement("TD");
-            if (subtot < 0 ){
-                y.setAttribute("style", "text-align: right; color: red; font:bold");
-             }else{
-                y.setAttribute("style", "text-align: right; color: green; font:bold");   
-            }
-            //y.setAttribute("style", "color: red");
-            var t = await document.createTextNode(subtot.toFixed(2));
-            y.appendChild(t);
-            document.getElementById("total").appendChild(y);                      
+                        }); //For Each
+                    }); //ForEach
 
-        }
+                        //Criando Totalizador
+                        //console.log("Total" + subtot)
+                        var x = document.createElement("TR");
+                        x.setAttribute("id", "total");
 
-    })
+                        document.getElementById("totais").appendChild(x);
+                        c=1
+                        while (c <= 2) {
+                            var y = document.createElement("TD");
+                            switch(c){
+                            case 1:
+                                var t = document.createTextNode("Reg: "+i);
+                                break;
+                            case 2:
+                                //Calculado participação
+                                var participacao = ((subtot*(-1)) / total_filtrado )*100
+                                var t = document.createTextNode("Participação: " + participacao.toFixed(2) + "%");
+                                break;
 
-                };
-            }
-        } 
-    
+                            } // Switch Case
+                            y.appendChild(t);
+                            document.getElementById("total").appendChild(y);
+                            c++
+                        } //While
 
-});
-    fusioncharts.render();
-    });
+                        //Verificando se negativo (Red) ou positivo (Blue)
+                        var y = document.createElement("TD");
+                        if (subtot < 0 ){
+                            y.setAttribute("style", "text-align: right; color: red; font:bold");
+                        }else{
+                            y.setAttribute("style", "text-align: right; color: green; font:bold");   
+                      }
+                        var t = await document.createTextNode(`Total: `+subtot.toFixed(2));
+                        y.appendChild(t);
+                        document.getElementById("total").appendChild(y);
 
+                        //document.getElementById("msg").innerHTML = "Participação: " + participacao.toFixed(2) + "%";
+
+                    } //sucess
+
+                }) //ajax
+
+            }; //showAlert
+        } //dataplotclik
+    } //Events 
+
+}); //new FusionCharts
+
+    fusioncharts.render()
+}); //FusionCharts.ready
+
+    //function total(total) {
+    //    console.log(total)
+    //}
+
+
+/*
+function impTot(subtot) {
+    //criada para tentar colocar total na ultima linha
+    console.log("Imprime Total: "+subtot)
+}    
+    impTot(subtot)
+*/    
 </script>
 <?php include("rodape.php"); ?>

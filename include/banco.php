@@ -357,7 +357,7 @@ function grafico($tipo, $filtro_ano, $filtro_mes, $filtro_categoria) {
 
 function grafico2($texto) {
 	
-	/**
+	/*****
 	 * Não esta em uso ainda
 	 */
 	$query = "SELECT json_agg(label) AS label,json_agg(value) AS value, json_agg(prev) AS prev FROM (

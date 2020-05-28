@@ -17,7 +17,7 @@ switch ($tabela) {
 		echo $busca[codsubcatlancto]." : ".$busca[descricao]." :".$busca[codcatlancto];
 		break;
 	case "fornecedor":
-		echo $busca[codfornec].":".$busca[nome].":".$busca[codbanco].":".$busca[codcatlancto].":".$busca[codsubcatlancto];
+		echo $busca[categ].":".$busca[nome].":".$busca[codbanco].":".$busca[codcatlancto].":".$busca[codsubcatlancto];
 		break;		
 }
 ?>

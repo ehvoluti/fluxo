@@ -3,13 +3,14 @@
 require("../../include/config.php");
 
 // Recebe o valor enviado
-$onde = "dtvencto>='2020-05-01' AND codcatlancto=".$_GET['onde'];
+$onde = $_GET['onde'];
 $tabela = $_GET['tabela'];
-$campos = "codlancto, favorecido, referencia,valorpago";
+$campos = "favorecido, referencia, CASE WHEN pagrec='P' THEN valorpago*(-1) ELSE valorpago END AS valorpago";
+
 
 
 //Ver dados de um registro apenas 
-$busca = listar($tabela, $campos, $onde); 
+$busca = listar($tabela, $campos, $onde, NULL, "3"); 
 //var_dump($busca)
 //echo $busca[codlancto].":".$busca[favorecido].":".$busca[referencia].":".$busca[valorpago];
 echo json_encode($busca);
