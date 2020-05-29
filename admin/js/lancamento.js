@@ -55,7 +55,10 @@ function versaldo(valor) {
 					$("#saldo4").html("Carrengado...");
 				},
 				data: {valor: valor},
-				success: function(msg) {$("#saldo4").html(msg)}
+				success: function(msg) {
+					console.log(msg)
+					$("#saldo4").html(msg)
+				}
 			});
 	} else {
 		saldo4.innerHTML = ``			

@@ -14,7 +14,16 @@ if($_POST) {
 	$temp_codparceiro = explode(":", $_POST[codparceiro]);
 	$_POST[codparceiro] = $temp_codparceiro[0];
 
-    if (inserir("lancamentogru", $_POST)){
+$parambanco = ver("parametro2", "valor", "idparametro=1");
+//echo "Param: ".$parambanco["valor"];
+	if ($parambanco["valor"]=="2"){
+		$insere_tabela = "lancamento";
+	}else{
+		$insere_tabela = "lancamentogru";
+	}	
+	
+    //if (inserir("lancamentogru", $_POST)){
+    if (inserir($insere_tabela, $_POST)){	
         header('Location: lancamento.php');
 
     }
