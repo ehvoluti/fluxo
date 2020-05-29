@@ -5,6 +5,7 @@ require("../include/config.php");
 if ($_POST) {
     alterar("fornecedor", "codfornec={$_GET["id"]}",$_POST);
     header('Location: fornecedor.php');
+    echo $_POST;
  }
 
 if($_GET["id"]){

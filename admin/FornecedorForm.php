@@ -17,7 +17,7 @@ require("topo.php");
                 </div>
                 
                <div class="control-group">
-                    <label class="control-label" for="codfornec">Codigo</label>
+                    <label class="control-label">Codigo</label>
                     <div class="controls">
                         <input type="text" id="codfornec" name="codfornec"  class="form-control col-4 col-xl-2 col-sm-8" >
                     </div>
