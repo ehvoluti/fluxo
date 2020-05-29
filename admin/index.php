@@ -20,8 +20,8 @@ if(!logado()){
 	<!-- Mostra Saldo -->
 	<div class="row">
 		<div class="span12">
-		<i class="fas fa-wallet" onclick="versaldo(4);"></i>
-		<i class="fas fa-credit-card" onclick="versaldo(5);"></i>
+		<i class="fas fa-wallet" 	  onclick="versaldo(<?php $temp = ver("parametro2","valor","idparametro=2"); echo $temp[valor];?>);"></i>
+		<i class="fas fa-credit-card" onclick="versaldo(<?php $temp = ver("parametro2","valor","idparametro=3"); echo $temp[valor];?>);"></i>
 		<span id="saldo4"></span>
 		</div>
 	</div>

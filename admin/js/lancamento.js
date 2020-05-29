@@ -41,6 +41,7 @@ function limitachar() {
 
 //Buscar Saldo do banco ao passar codbanco
 function versaldo(valor) {
+	//console.log(valor)
 	var saldo4 = document.getElementById('saldo4')
 	var textospan = saldo4.innerText
 	var page = 'ajax/saldobanco.php'
