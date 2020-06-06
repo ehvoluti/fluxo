@@ -61,6 +61,18 @@
 					  <a class="dropdown-item" href="#">Categoria Anual</a>
 					</div>
 				  </li>
+					<!-- Utilitarios -->				  
+				  <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  Util
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					  <a class="dropdown-item" href="#">Parâmetros</a>			
+					  <a class="dropdown-item" href="#">Rotinas</a>
+					  <div class="dropdown-divider"></div>
+					  <a class="dropdown-item" href="logout.php">Logout</a>
+					</div>
+				  </li>
 				</ul>
 			  </div>
 			</nav>

@@ -148,7 +148,7 @@ $banco_listar = listar("banco", "codbanco, nome");
 							<span>Referencia</span>
 						</div>	
 						<div class="col-8">
-							<input type="text" id="filtrar_referencia" name="filtrar_referencia" class="form-control col-6 col-xl-8 col-sm-8">
+							<input type="text" id="filtrar_referencia" name="filtrar_referencia" class="form-control">
 						</div>
 					</div>
 
@@ -158,10 +158,10 @@ $banco_listar = listar("banco", "codbanco, nome");
 							<span>Valor</span>
 						</div>	
 						<div class="col-4">De:
-							<input type="decimal" id="filtrar_valor_de" name="filtrar_valor_de" class="form-control col-6 col-xl-8 col-sm-8" inputmode="numeric">
+							<input type="decimal" id="filtrar_valor_de" name="filtrar_valor_de" class="form-control" inputmode="numeric" style="text-align:right;">
 						</div>
 						<div class="col-4">Ate:
-							<input type="decimal" id="filtrar_valor_ate" name="filtrar_valor_ate" class="form-control col-6 col-xl-8 col-sm-8" inputmode="numeric" step="0.01">
+							<input type="decimal" id="filtrar_valor_ate" name="filtrar_valor_ate" class="form-control" inputmode="numeric" step="0.01" style="text-align:right;">
 						</div>
 
 					</div>

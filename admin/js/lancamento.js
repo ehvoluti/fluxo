@@ -1,4 +1,4 @@
-/*
+	/*
   Carregar referencia ao passar com o Mouse
   */
 $(function(){
@@ -14,10 +14,13 @@ function getFornec()
 	//Tratamento para carregar a Categoria e Sub do fornecedor selecionado
 	$.ajax({
 		url: 'ajax/ver_categ_fornec.php',
-		data:{tabela:'fornecedor',campos:` (SELECT cat.descricao||' >> '||sub.descricao FROM catlancto as cat INNER JOIN subcatlancto as sub ON (cat.codcatlancto=sub.codcatlancto) WHERE sub.codsubcatlancto=fornecedor.codsubcatlancto) as categ `,valor:`codfornec=`+codparceiro[0]},
+		data:{tabela:'fornecedor',campos:` (SELECT cat.descricao||' >> '||sub.descricao FROM catlancto as cat INNER JOIN subcatlancto as sub ON (cat.codcatlancto=sub.codcatlancto) WHERE sub.codsubcatlancto=fornecedor.codsubcatlancto) as categ, codbanco `,valor:`codfornec=`+codparceiro[0]},
 		success:function(retorno){
-			//console.log(retorno)
-			document.getElementById("fornecedor").innerHTML = retorno; 
+			retorno2 = retorno.split(",")
+			//console.log(retorno2)
+			document.getElementById("fornecedor").innerHTML = retorno2[0];
+			document.getElementById("banco").value = retorno2[1]
+
 		}
 	})
 
@@ -56,7 +59,7 @@ function versaldo(valor) {
 				},
 				data: {valor: valor},
 				success: function(msg) {
-					console.log(msg)
+			//		console.log(msg)
 					$("#saldo4").html(msg)
 				}
 			});
