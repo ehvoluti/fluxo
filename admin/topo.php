@@ -67,7 +67,7 @@
 					  Util
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					  <a class="dropdown-item" href="#">Parâmetros</a>			
+					  <a class="dropdown-item" href="parametro.php">Parâmetros</a>			
 					  <a class="dropdown-item" href="#">Rotinas</a>
 					  <div class="dropdown-divider"></div>
 					  <a class="dropdown-item" href="logout.php">Logout</a>
