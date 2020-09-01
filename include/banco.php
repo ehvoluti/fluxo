@@ -147,7 +147,7 @@ function listar($tabela, $campos, $onde = null, $filtro = null, $ordem = null, $
 	if(!empty($limite)) {
 		$query .= " LIMIT $limite";
 	}
-	//echo $query;
+	//echo "<br>".$query;
 	/**
 	 * Preparamos e executamos nossa query
 	 */
@@ -221,15 +221,16 @@ function combocat($tabela, $campos, $onde = null) {
 }
 
 
-function saldo($banco) {
+function saldo($banco, $datasaldo = CURRENT_DATE) {
 	
 	/**
 	 * Montamos nossa query SQL para pegar apenas um dado
 	 */
-	$query = "SELECT (SELECT nome FROM banco WHERE codbanco=$banco) AS banco, SUM(CASE WHEN pagrec='P' THEN (valorpago*(-1)) ELSE valorpago END) AS saldo FROM lancamento WHERE codbanco = $banco";
+	$query = "SELECT (SELECT nome FROM banco WHERE codbanco=$banco) AS banco, SUM(CASE WHEN pagrec='P' THEN (valorpago*(-1)) ELSE valorpago END) AS saldo FROM lancamento WHERE codbanco = $banco AND dtliquid <= $datasaldo";
 	
+	//echo "<br>".$query;
 	$consulta = pg_query($query);
-	//echo $query;	
+	//echo "<br>".$query;	
 	/**
 	 * Guardamos os resultados dentro do array resultados, que será retornado para a aplicação
 	 */
