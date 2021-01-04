@@ -66,10 +66,10 @@ $banco_listar = listar("banco", "codbanco, nome");
 			<tbody>
 				<?php foreach ($tipos as $tipo): ?>
 					<tr>
-						<th><?php echo SUBSTR($tipo['dtemissao'],8,2)."/".SUBSTR($tipo['dtemissao'],5,2); ?></th>
+						<th><?php echo SUBSTR($tipo['dtemissao'],8,2)."/".SUBSTR($tipo['dtemissao'],5,2)."/".SUBSTR($tipo['dtemissao'],2,2); ?></th>
 						<th data-toggle="tooltip" data-placement="left" title="<?php echo '['.$tipo['referencia'].']'; ?>"><?php echo SUBSTR($tipo['favorecido'],0,15)?></th>
 							<?php $banco = listar("banco", "*", "codbanco=".$tipo['codbanco']);  foreach ($banco as $xbanco): ?>
-								<th><?php echo $xbanco['nome'];?></th>
+								<th><?php echo SUBSTR($xbanco['nome'],0,6);?></th>
 							<?php endforeach; ?>
 						<!-- <th><?php // echo $tipo['codbanco']; ?></th> -->
 						<!-- <th><?php //echo SUBSTR($tipo['referencia'],0,20); ?></th> -->
