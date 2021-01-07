@@ -68,7 +68,7 @@
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					  <a class="dropdown-item" href="parametro.php">Parâmetros</a>			
-					  <a class="dropdown-item" href="#">Rotinas</a>
+					  <a class="dropdown-item" href="concilia_extrato.php" target="_blank">Concilia por arquivo</a>
 					  <div class="dropdown-divider"></div>
 					  <a class="dropdown-item" href="logout.php">Logout</a>
 					</div>
