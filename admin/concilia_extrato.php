@@ -134,18 +134,14 @@ $banco_listar = listar("banco", "codbanco, nome");
 										$i = $i+1;
 									endforeach;
 								} else {
-									$resp = "Não encontrado";
+									$resp = 'Não encontrado';
 								}
 
 								}
 							?>
 							
 							<td>
-							<? //Tratamento com cor no não encontrado
-								//if ($resp=="Não encontrado") {
-							//		echo '<td style="background-color:Tomato;">'.$resp.'</td>';
-								//} else { echo '<td>'.$resp.'</td>';
-								//} 
+							<?
 								echo $resp;	
 							?>	
 							</td>
