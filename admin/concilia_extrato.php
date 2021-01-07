@@ -127,14 +127,14 @@ $banco_listar = listar("banco", "codbanco, nome");
 									$i = 1;
 									foreach ($nubank as $Xnubank):
 										if ($i>1) {
-											$resp = '<br> : '.$Xnubank[codlancto].'->'.$Xnubank[favorecido];
+											$resp = "<br> : ".$Xnubank[codlancto]."->".$Xnubank[favorecido];
 										} else {
-											$resp = ' : '.$Xnubank[codlancto].'->'.$Xnubank[favorecido];
+											$resp = " : ".$Xnubank[codlancto]."->".$Xnubank[favorecido];
 										}
 										$i = $i+1;
 									endforeach;
 								} else {
-									$resp = 'Não encontrado';
+									$resp = "Não encontrado";
 								}
 
 								}
