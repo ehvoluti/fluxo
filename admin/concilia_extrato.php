@@ -139,10 +139,17 @@ $banco_listar = listar("banco", "codbanco, nome");
 
 								}
 							?>
-							<? if ($resp=="Não encontrado") {
-									echo '<td style="background-color:Tomato;">'.$resp.'</td>';
-								} else { echo '<td>'.$resp.'</td>';
-								} ?>	
+							
+							<td>
+							<? //Tratamento com cor no não encontrado
+								//if ($resp=="Não encontrado") {
+							//		echo '<td style="background-color:Tomato;">'.$resp.'</td>';
+								//} else { echo '<td>'.$resp.'</td>';
+								//} 
+								echo $resp;	
+							?>	
+							</td>
+
 					</tr>
 							
 				<?php		
