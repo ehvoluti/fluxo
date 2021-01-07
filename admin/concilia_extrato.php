@@ -140,8 +140,8 @@ $banco_listar = listar("banco", "codbanco, nome");
 								}
 							?>
 							<? if ($resp=="Não encontrado") {
-									echo "<td style='background-color:Tomato;'>".$resp."</td>";
-								} else { echo "<td>".$resp."</td>";
+									echo '<td style="background-color:Tomato;">'.$resp.'</td>';
+								} else { echo '<td>'.$resp.'</td>';
 								} ?>	
 					</tr>
 							
