@@ -6,7 +6,7 @@ $_POST['entrada']="0";
 	if($_POST['filtrar_banco']){
 		$sel_banco = $_POST['filtrar_banco'];	
 	} else {
-		$sel_banco = "0";
+		$sel_banco = "1";
 	}
 //	echo $sel_banco;
 
@@ -15,7 +15,8 @@ $_POST['entrada']="0";
       date_default_timezone_set("Brazil/East"); //Definindo timezone padrão
 
       $ext = strtolower(substr($_FILES['carrega_csv']['name'],-4)); //Pegando extensão do arquivo
-      $new_name = "extrato" . $ext; //Definindo um novo nome para o arquivo
+      //echo $ext;
+      $new_name = "extrato.csv"; //Definindo um novo nome para o arquivo
       $dir = 'uploads/'; //Diretório para uploads
 
       move_uploaded_file($_FILES['carrega_csv']['tmp_name'], $dir.$new_name); //Fazer upload do arquivo
@@ -24,6 +25,13 @@ $_POST['entrada']="0";
 
 
 $banco_listar = listar("banco", "codbanco, nome");
+$param_banco = ver("banco", "conc_delimitador, conc_sinaldesp, conc_posdata, conc_posdescricao, conc_posvalor", "codbanco=".$sel_banco);
+//echo "<br>delimitador: ".$param_banco[conc_delimitador];
+//echo "<br>conc_sinaldesp: ".$param_banco[conc_sinaldesp];
+//echo "<br>conc_posdata: ".$param_banco[conc_posdata];
+//echo "<br>conc_posdescricao: ".$param_banco[conc_posdescricao];
+//echo "<br>conc_posvalor: ".$param_banco[conc_posvalor];
+//var_dump($param_banco);
 ?>
 
 <?php include("topo.php"); ?>
@@ -52,12 +60,13 @@ $banco_listar = listar("banco", "codbanco, nome");
 			<?php 
 //			if($_POST['entrada']="1") {
 
-				$delimitador = ',';	
-				if ($sel_banco=="1"){
-					$delimitador = ';';	
-				} else {
-					$delimitador = ',';	
-				}
+				// $delimitador = ',';	
+				// if ($sel_banco=="1"){
+				// 	$delimitador = ';';	
+				// } else {
+				// 	$delimitador = ',';	
+				// }
+				$delimitador = $param_banco[conc_delimitador];	
 				
 				$cerca = NULL;
 				$f = fopen("uploads/extrato.csv","r");
@@ -80,40 +89,62 @@ $banco_listar = listar("banco", "codbanco, nome");
 				        }
 
 				        //echo "<br> Var Banco == ".$sel_banco;
+					//Tratamento das linhas
+				    $dtextrato =  $linha[$param_banco[conc_posdata]];
+				    $valor_extrato = $linha[$param_banco[conc_posvalor]];
+				    $Descricao_extrato = $linha[$param_banco[conc_posdescricao]];
+				    //Verificar se é um Recebimento ou Pagamento	
+					if ((substr($valor_extrato,0,1))==$param_banco[conc_sinaldesp] AND $param_banco[conc_sinaldesp]=="-" ) {
+						$sinal_extrato="P";
+					} elseif ((substr($valor_extrato,0,1))<>$param_banco[conc_sinaldesp] AND $param_banco[conc_sinaldesp]=="-" ) {
+						$sinal_extrato="R";
+					} elseif  ((substr($valor_extrato,0,1))=="-" AND $param_banco[conc_sinaldesp]="X") {
+						$sinal_extrato="R";
+					} else {
+						$sinal_extrato="P";
+					}
+
+					//Tratamento para linha do Itau, precisa melhorar essa rotina
+					if ($sel_banco=="1"){
+					 	$dtextrato = substr($linha[0],6,4)."-".substr($linha[0],3,2)."-".substr($linha[0],0,2);
+					 	$valor_extrato = str_replace(",",".",$valor_extrato);
+					}
+
+					
 					//Tratamento das linhas por banco				        
 				    //Itau    
-					if ($sel_banco=="1"){
-						$dtextrato = substr($linha[0],6,4)."-".substr($linha[0],3,2)."-".substr($linha[0],0,2);
-						$valor_extrato = str_replace(",",".",str_replace(".", "", $linha[3]));
-						$Descricao_extrato = $linha[1];
-						//echo "<br> Data:".$dtextrato." / ". $valor;
+					// if ($sel_banco=="1"){
+					// 	$dtextrato = substr($linha[0],6,4)."-".substr($linha[0],3,2)."-".substr($linha[0],0,2);
+					// 	$valor_extrato = str_replace(",",".",str_replace(".", "", $linha[3]));
+					// 	$Descricao_extrato = $linha[1];
+					// 	//echo "<br> Data:".$dtextrato." / ". $valor;
 	
-						//Verificar se é um Recebimento ou Pagamento	
-						if ((substr($valor_extrato,0,1))=="-"){
-							$sinal_extrato="P";
-						} else {
-							$sinal_extrato="R";
-						}
+					// 	//Verificar se é um Recebimento ou Pagamento	
+					// 	if ((substr($valor_extrato,0,1))=="-"){
+					// 		$sinal_extrato="P";
+					// 	} else {
+					// 		$sinal_extrato="R";
+					// 	}
 
-					} else {
+					// } else {
 						
-						//echo "Entrou banco 5";
-						$dtextrato = $linha[0];
-						$Descricao_extrato = $linha[2];
-						$valor_extrato =  $linha[3];
-						//Verificar se é um Recebimento ou Pagamento	
-						if ((substr($valor_extrato,0,1))=="-"){
-							$sinal_extrato="R";
-						} else {
-							$sinal_extrato="P";
-						}
+					// 	//echo "Entrou banco 5";
+					// 	$dtextrato = $linha[0];
+					// 	$Descricao_extrato = $linha[2];
+					// 	$valor_extrato =  $linha[3];
+					// 	//Verificar se é um Recebimento ou Pagamento	
+					// 	if ((substr($valor_extrato,0,1))=="-"){
+					// 		$sinal_extrato="R";
+					// 	} else {
+					// 		$sinal_extrato="P";
+					// 	}
 
 						//echo "<br> Data:".$dtextrato." / ". $valor;
-					}				        
+					//}				        
 
 
 					//Valida se linha já faz parte das informações pelo ano
-				    if (substr($dtextrato,0,4)=='2020') {
+				    if (substr($dtextrato,0,2)=='20') {
 						 
 				?>
 					<tr>
