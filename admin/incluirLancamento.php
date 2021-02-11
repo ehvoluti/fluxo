@@ -23,6 +23,12 @@ $parambanco = ver("parametro2", "valor", "idparametro=1");
 	}	
 	
     //if (inserir("lancamentogru", $_POST)){
+	if (STRLEN($_POST[referencia])>35) {
+		$temp_ref = $_POST[referencia];
+		$_POST[observacao] = $temp_ref;
+	 	$_POST[referencia] = SUBSTR($temp_ref,0,35);
+	 } 
+
     if (inserir($insere_tabela, $_POST)){	
         header('Location: lancamento.php');
 

@@ -32,7 +32,7 @@ function limitachar() {
 	var msglimite = document.getElementById('limitachar');
 	msglimite.innerHTML = `Recebe texto`;
 	if (texto.length > 35 ) {
-		msglimite.innerHTML = `${texto.length}: (Ultrapassou limite de 35 caracteres)`
+		msglimite.innerHTML = `${texto.length}: (Após 35 caracteres, dados gravados na observacao)`
 		msglimite.style.color = 'red';
 	} else {
 		msglimite.style.color = 'rgb(146, 143, 143)';
